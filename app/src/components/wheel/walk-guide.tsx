@@ -56,7 +56,7 @@ export function WalkGuide() {
               title={seg}
               className={`relative flex-1 h-8 rounded-md text-[10px] font-medium transition-all flex items-center justify-center gap-0.5 border ${
                 isCurrent
-                  ? "shadow-sm ring-1 ring-offset-1"
+                  ? "shadow-sm"
                   : isSuggested
                     ? "segment-pulse"
                     : isComplete
@@ -67,7 +67,7 @@ export function WalkGuide() {
                 backgroundColor: isCurrent || isComplete ? colors.bg : "white",
                 borderColor: isCurrent ? colors.accent : isComplete ? colors.accent + "60" : "#e7e5e4",
                 color: colors.text,
-                ringColor: isCurrent ? colors.accent : undefined,
+                ...(isCurrent ? { boxShadow: `0 0 0 2px white, 0 0 0 4px ${colors.accent}` } : {}),
               }}
             >
               {isComplete && <Check size={10} strokeWidth={3} />}
