@@ -73,11 +73,10 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Cockpit: progress + dish builder — prominent, full width, sticky */}
+      {/* Walk guide — what's next indicator */}
       <div className="border-b border-stone-200/40 bg-white/60 backdrop-blur-sm sticky top-[53px] z-10">
         <div className="max-w-7xl mx-auto px-4">
           <WalkGuide />
-          <DishBuilder />
         </div>
       </div>
 
@@ -85,7 +84,7 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-4 py-6">
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(300px,400px)_minmax(0,1fr)_280px] gap-6">
           {/* Left: Wheel */}
-          <div className="flex flex-col items-center lg:sticky lg:top-[300px] lg:self-start">
+          <div className="flex flex-col items-center lg:sticky lg:top-[110px] lg:self-start">
             <FlavorWheel />
           </div>
 
@@ -111,13 +110,16 @@ export default function Home() {
 
             <FilterBar />
 
-            <div className="max-h-[calc(100vh-300px)] overflow-y-auto pr-1 -mr-1 scrollbar-thin">
+            <div className="max-h-[calc(100vh-260px)] overflow-y-auto pr-1 -mr-1 scrollbar-thin">
               <IngredientGrid />
             </div>
           </div>
 
-          {/* Right: Dish Suggestions */}
-          <div className="hidden lg:block lg:sticky lg:top-[300px] lg:self-start space-y-4 max-h-[calc(100vh-320px)] overflow-y-auto scrollbar-thin pr-1">
+          {/* Right: Dish Builder + Suggestions */}
+          <div className="hidden lg:block lg:sticky lg:top-[110px] lg:self-start space-y-4 max-h-[calc(100vh-130px)] overflow-y-auto scrollbar-thin pr-1">
+            <div className="bg-white/60 backdrop-blur-sm rounded-2xl border border-stone-200/60 p-4">
+              <DishBuilder />
+            </div>
             <DishSuggestions />
           </div>
         </div>
