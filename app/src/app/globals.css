@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #FAF9F6;
+  --color-coral: #D97757;
+  --color-coral-light: #E8A08A;
+  --color-coral-dark: #C4603F;
+
+  --color-sour: #F59E0B;
+  --color-umami: #B91C1C;
+  --color-oil: #CA8A04;
+  --color-crunch: #65A30D;
+  --color-sweet: #DB2777;
+  --color-aroma: #9333EA;
+  --color-fresh: #16A34A;
+  --color-soft: #EA580C;
+  --color-bitter: #4F46E5;
+  --color-spicy: #DC2626;
+
+  --font-heading: "Source Serif 4", "Georgia", serif;
+  --font-body: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-cream);
+    color: #1a1a1a;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer utilities {
+  .segment-pulse {
+    animation: segment-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes segment-pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #d6d3d1 transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #d6d3d1;
+    border-radius: 4px;
+  }
+}

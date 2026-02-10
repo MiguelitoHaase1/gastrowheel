@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+.next/
+*.tsbuildinfo
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Vercel
+.vercel
+
+# Turbopack
+.turbo/
+
+# Legacy source data (large CSVs/Excel not needed in repo)
+IngredientTags.csv
+IngredientTagsV2.csv
+Gastrowheel_tags .csv
+CommonIngredients.xlsx
+
+# Beads task tracking (local agent state)
+.beads/
+
+# Debug/status files
+status.md

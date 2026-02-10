@@ -1,0 +1,36 @@
+{
+  "name": "@gastrowheel/data",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./src/index.ts",
+      "default": "./dist/index.js"
+    },
+    "./generated/ingredients": {
+      "import": "./generated/ingredients.ts",
+      "default": "./generated/ingredients.ts"
+    },
+    "./generated/dishes": {
+      "import": "./generated/dishes.ts",
+      "default": "./generated/dishes.ts"
+    }
+  },
+  "scripts": {
+    "generate": "tsx scripts/generate-data.ts",
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "csv-parse": "^5.6.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^4.0.18"
+  }
+}

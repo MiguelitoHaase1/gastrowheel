@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="152px" height="152px" viewBox="0 0 152 152" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>redpotato</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="redpotato" stroke="#A8104C">
+            <g id="Group" transform="translate(5.000000, 28.000000)">
+                <path d="M81.4934212,11.2542382 C81.4934212,11.2542382 88.8186941,16.6020979 93.3444763,18.0790164 C97.8702584,19.555935 108.140638,19.9501426 108.140638,19.9501426 C108.140638,19.9501426 138.180831,19.9501426 141.70832,49.6022727 C145.23581,79.2544029 115.157635,90.1607126 115.157635,90.1607126 C115.157635,90.1607126 106.362414,93.5275189 93.3444763,95.4647244 C80.326539,97.40193 73.1887607,96.8556069 67.0871728,96.7852016 C51.3382113,96.6034766 27.3521091,89.1475372 27.3521091,89.1475372 C27.3521091,89.1475372 -15.2880905,72.4068336 6.40969251,26.1053386 C28.1074755,-20.1961563 81.4934212,11.2542382 81.4934212,11.2542382 Z" id="Path-593" stroke-width="2.2" transform="translate(71.125363, 48.864464) scale(-1, 1) translate(-71.125363, -48.864464) "></path>
+                <path d="M107.821851,25.3522727 C123.937834,45.9923266 119.568462,58.4825332 118.588643,67.0228377" id="Path-594" stroke-width="2.1" stroke-linecap="round"></path>
+                <path d="M26.3591818,39.4524665 C20.6512047,44.6529017 24.1892104,52.0316682 24.1892104,52.0316682" id="Path-595" stroke-width="1.9" stroke-linecap="round"></path>
+                <path d="M26.3591818,39.4524665 C20.6512047,44.6529017 24.1892104,52.0316682 24.1892104,52.0316682" id="Path-595" stroke-width="2.1" stroke-linecap="round"></path>
+                <path d="M65.9666144,8.81818182 C52.538625,17.0207183 60.8617668,28.6590909 60.8617668,28.6590909" id="Path-595" stroke-width="2.1" stroke-linecap="round"></path>
+                <ellipse id="Oval" stroke-width="2.1" stroke-linecap="round" cx="78.1158305" cy="79.3636364" rx="6.60133779" ry="3.30681818"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

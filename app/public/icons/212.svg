@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="152px" height="152px" viewBox="0 0 152 152" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>olives</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="olives" stroke="#095B6B">
+            <ellipse id="Oval" stroke-width="2.2" cx="81.8548357" cy="110.876552" rx="27.7631709" ry="26.3024627"></ellipse>
+            <ellipse id="Oval" stroke-width="2.2" cx="106.14761" cy="50.1303886" rx="35.3349448" ry="28.18121"></ellipse>
+            <path d="M8.976512,62.0291217 C8.976512,81.3977204 21.6890069,97.099072 37.3706641,97.099072 C53.0523213,97.099072 65.7648162,81.3977204 65.7648162,62.0291217 C65.7648162,42.6605231 53.0523213,26.9591715 37.3706641,26.9591715 C21.6890069,26.9591715 8.976512,42.6605231 8.976512,62.0291217 Z" id="Oval" stroke-width="2.2"></path>
+            <ellipse id="Oval-3" stroke-width="2" cx="88.3223926" cy="120.896538" rx="11.1999155" ry="10.0199858"></ellipse>
+            <ellipse id="Oval-3" stroke-width="2" cx="80.908364" cy="50.1303886" rx="6.30981158" ry="11.8987331"></ellipse>
+            <path d="M56.5449922,67.0391146 C56.5449922,67.0391146 57.2982815,77.2246282 49.8986871,84.3558045 C42.4990928,91.4869807 30.6918337,88.6014222 30.6918337,88.6014222 C30.6918337,88.6014222 42.9578498,92.8058123 50.5493939,86.9560833" id="Path-42" stroke-width="2"></path>
+            <path d="M36.7396829,29.464168 C36.7396829,29.464168 38.0117577,29.648257 38.8503957,31.9794852 C39.6890337,34.3107133 38.8503957,38.4367749 38.8503957,38.4367749" id="Path-222" stroke-width="2"></path>
+            <path d="M31.6918337,34.8181161 C31.6918337,34.8181161 33.8764039,32.8067678 37.3917299,32.1458156 C40.9070559,31.4848634 45.1148095,32.8915173 45.1148095,32.8915173" id="Path-223" stroke-width="2"></path>
+        </g>
+    </g>
+</svg>

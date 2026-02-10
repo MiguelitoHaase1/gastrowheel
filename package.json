@@ -1,0 +1,10 @@
+{
+  "name": "gastrowheel",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter @gastrowheel/app dev",
+    "build": "pnpm -r build",
+    "generate-data": "pnpm --filter @gastrowheel/data generate",
+    "test": "pnpm --filter @gastrowheel/data test"
+  }
+}

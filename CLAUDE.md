@@ -88,17 +88,93 @@ python3 scripts/build_unified_csv.py
 
 Dish content supports: English (en), Danish (da), German (de), Spanish (es), Latvian (lv), Estonian (et), Lithuanian (lt). Ingredient names are English only.
 
-## Architecture Plan
+## Architecture (Implemented)
 
-### React Web App
-- Interactive wheel visualization with 10 segments
-- Step-by-step ingredient selection flow
-- Ingredient cards with SVG icons
-- Pairing suggestions based on selected ingredients
-- Dietary filter support
+### Monorepo (pnpm workspaces)
 
-### MCP Server
-- Serve ingredient data with full taxonomy
-- Pairing/recommendation engine based on shared tags, flavor profiles, and aroma compatibility
-- Dish suggestion based on selected ingredients
-- Dietary and regional filtering
+```
+Gastrowheel/
+├── packages/data/          # @gastrowheel/data — types, constants, pairing engine
+├── packages/mcp-server/    # @gastrowheel/mcp-server — 5 MCP tools
+├── app/                    # @gastrowheel/app — Next.js 15 + React 19
+└── pnpm-workspace.yaml     # packages/*, app
+```
+
+### Build & Run Commands
+
+```bash
+pnpm install              # Install all workspace deps
+pnpm generate-data        # Regenerate TS modules from CSV + JSON
+pnpm -r build             # Build all packages (data → mcp-server + app)
+pnpm dev                  # Start Next.js dev server (port 3000)
+```
+
+### Key Technology Choices
+
+| Choice | Rationale |
+|---|---|
+| Pre-generated TS modules from CSV | 827 rows = ~150KB. No DB needed. Type-safe, zero-latency. |
+| SVG wheel (not Canvas) | 10 segments = trivial. Native DOM events, CSS transitions, accessible. |
+| Zustand for state | Complex state consumed by many components. Avoids Context re-render cascade. |
+| Tailwind v4 + custom @theme | Warm cream/coral palette, segment-specific colors defined in globals.css |
+| framer-motion | Smooth segment transitions, ingredient card entry animations |
+| Extensionless imports in data package | Required for Next.js `transpilePackages` compatibility |
+
+### Data Flow
+
+```
+gastrowheel_unified.csv + scripts/excel_parsed.json
+    ↓ (pnpm generate-data → packages/data/scripts/generate-data.ts)
+packages/data/generated/{ingredients,dishes}.ts
+    ↓ (import via package exports)
+app/src/lib/data.ts (re-exports for app consumption)
+    ↓
+Components, hooks, store
+```
+
+### Important Implementation Notes
+
+- **Nullable dish fields**: Some dish entries have `null` for `dishName`, `dishPk`, `fullTextEn`. Types use `string | null` / `number | null`.
+- **Data package exports**: The `package.json` exports map explicit paths for generated files (`./generated/ingredients`, `./generated/dishes`). Wildcard exports didn't work reliably with Next.js.
+- **Import style**: All internal imports in `packages/data/src/` use extensionless paths (e.g., `from "./types"` not `from "./types.js"`). This is required because Next.js `transpilePackages` resolves `.ts` source files directly.
+- **Generated files import types**: `generated/ingredients.ts` imports `from "../src/types"` — this relative path works because Next.js transpiles the whole package.
+- **Icons**: 342 SVGs copied to `app/public/icons/{id}.svg`. The `has_icon` field on ingredients determines which have icons vs letter fallback.
+
+### Web App Component Map
+
+```
+app/src/
+├── app/page.tsx              # Main layout (3-col desktop, mobile bottom sheet)
+├── components/
+│   ├── wheel/flavor-wheel.tsx  # SVG wheel with 10 arc segments
+│   ├── wheel/walk-guide.tsx    # Horizontal step indicator
+│   ├── ingredients/ingredient-grid.tsx  # Pairing-scored ingredient list
+│   ├── ingredients/ingredient-card.tsx  # Single ingredient card
+│   ├── ingredients/ingredient-icon.tsx  # SVG icon or letter fallback
+│   ├── dish/dish-builder.tsx   # Selected ingredients summary
+│   ├── dish/dish-suggestions.tsx # Fuzzy dish matching
+│   ├── dish/cooking-guide.tsx  # Recipe tag → cooking steps
+│   └── filters/filter-bar.tsx  # Dietary, season, region, search
+├── store/dish-store.ts       # Zustand: selections, filters, walk state
+├── hooks/use-ingredients.ts  # Static data access hook
+└── lib/data.ts               # Re-exports from generated modules
+```
+
+### MCP Server Tools
+
+1. `get_ingredients_by_segment` — Filter by wheel segment + dietary/season/region
+2. `get_ingredient_details` — Lookup by ID or name
+3. `get_pairing_suggestions` — Ranked pairings given selected IDs + target segment
+4. `suggest_dishes` — Match ingredients against dish descriptions
+5. `search_ingredients` — Free-text + structured filter search
+
+### Pairing Engine Weights
+
+| Factor | Weight | Logic |
+|---|---|---|
+| Aroma overlap | 0.35 | Jaccard similarity on 15 aroma tags |
+| Taste balance | 0.25 | Favor underrepresented tastes |
+| Region affinity | 0.15 | Same cuisine region scores higher |
+| Season match | 0.10 | Shared seasonality |
+| Role diversity | 0.10 | Favor underrepresented role categories (Bulk/Boost/Top/Splash) |
+| Commonality | 0.05 | Prefer widely available ingredients |
