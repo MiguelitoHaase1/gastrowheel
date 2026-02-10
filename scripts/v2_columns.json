@@ -1,0 +1,150 @@
+{
+  "Dish components": {
+    "Bulk": [
+      "Fibres",
+      "Starch",
+      "Protein",
+      "Lightbulks"
+    ],
+    "Boost": [
+      "Spices",
+      "Alliums"
+    ],
+    "Top": [
+      "Fruittops",
+      "Seeds",
+      "Nuts",
+      "Bread",
+      "Cheesetops",
+      "Herbs",
+      "OtherTops"
+    ],
+    "Splash": [
+      "Oils",
+      "Fats",
+      "LiquidAromas"
+    ]
+  },
+  "Dietary": {
+    "(none)": [
+      "Glutenfree",
+      "Vegan",
+      "Vegetarian",
+      "LactoseFree",
+      "Diabetic",
+      "NutFree",
+      "FODMAPS"
+    ]
+  },
+  "Flavor": {
+    "Taste": [
+      "Umami",
+      "Sweet",
+      "Bitter",
+      "Sour",
+      "Salty",
+      "Spicy",
+      "Crunchy",
+      "AromaBomb"
+    ],
+    "Aromas": [
+      "FRUITY",
+      "GREEN",
+      "FLORAL",
+      "SULFUROUS",
+      "HERBAL",
+      "SPICY",
+      "WOODY",
+      "NUTTY",
+      "ROASTED",
+      "SMOKEY",
+      "CITRUS",
+      "MEATY",
+      "MARINE",
+      "CREAMY",
+      "CHEESY"
+    ]
+  },
+  "Seasonality": {
+    "(none)": [
+      "Spring",
+      "Summer",
+      "Fall",
+      "Winter"
+    ]
+  },
+  "Region": {
+    "(none)": [
+      "Mediterranean",
+      "SouthAsian",
+      "EastAsian",
+      "LatinAmerican",
+      "European",
+      "MiddleEastern",
+      "Exotic"
+    ]
+  },
+  "Style": {
+    "(none)": [
+      "SlowAndDeep",
+      "FastAndFresh",
+      "? ? ?"
+    ]
+  },
+  "RecipeTags": {
+    "(none)": [
+      "Sofrito",
+      "Taco",
+      "Aromatics",
+      "Boil",
+      "Raw",
+      "Dressing",
+      "Toasting"
+    ]
+  },
+  "Flavormap": {
+    "Balance": [
+      "Sour_map",
+      "Umami_map",
+      "Sweet_map",
+      "Bitter_map"
+    ],
+    "Texture": [
+      "Crunch_map",
+      "OilAndFat_map"
+    ],
+    "Pain": [
+      "Pungency_map"
+    ],
+    "Aromatics": [
+      "Spices_map",
+      "Herbs_map",
+      "Cheese_map",
+      "Alliums_map"
+    ],
+    "Beverages": [
+      "Beverages_map",
+      "Fruits_map",
+      "FillingVeggies_map"
+    ],
+    "Vegetables": [
+      "Vegetables_map",
+      "MeatAndFish_map",
+      "Baking_map"
+    ]
+  },
+  "GastroTags": {
+    "(none)": [
+      "Sour_wheel",
+      "Umami_wheel",
+      "Oil_wheel",
+      "Crunch_wheel",
+      "Sweet_wheel",
+      "Aroma_wheel",
+      "Fresh_wheel",
+      "Soft_wheel",
+      "Bitter_wheel",
+      "Spicy_wheel"
+    ]
+  }
+}

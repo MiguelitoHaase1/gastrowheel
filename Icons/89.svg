@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="152px" height="152px" viewBox="0 0 152 152" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>can</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="can" stroke="#446DB5">
+            <g id="Group" transform="translate(26.000000, 2.000000)">
+                <ellipse id="Oval" stroke-width="2.5" cx="50.0052362" cy="16.6665922" rx="50.0052362" ry="16.6665922"></ellipse>
+                <ellipse id="Oval" stroke-width="2" cx="50.1726947" cy="15.6551182" rx="33.080387" ry="7.89470157"></ellipse>
+                <path d="M0,17.0729167 L0.575696863,135.590895 C0.575696863,135.590895 7.28807101,148.354792 49.9194712,148.354792 C92.5508714,148.354792 99.2632455,135.590895 99.2632455,135.590895 L99.9804037,17.0729167" id="Path-130" stroke-width="2.5"></path>
+                <path d="M0.277239206,116.180952 C0.277239206,116.180952 15.7131779,126.997873 49.6239868,126.997873 C83.5347957,126.997873 99.2479736,116.180952 99.2479736,116.180952 L99.2479736,38.8020833 C99.2479736,38.8020833 79.315479,49.6095403 49.6239868,49.6095403 C19.9324946,49.6095403 0,38.8020833 0,38.8020833 L0.277239206,116.180952 Z" id="Path-131" stroke-width="2"></path>
+            </g>
+        </g>
+    </g>
+</svg>
