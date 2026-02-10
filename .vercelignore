@@ -1,0 +1,8 @@
+.beads
+.git
+node_modules
+*.csv
+*.xlsx
+scripts/
+Icons/
+status.md
