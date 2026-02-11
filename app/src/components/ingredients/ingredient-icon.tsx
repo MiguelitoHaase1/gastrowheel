@@ -25,7 +25,7 @@ export function IngredientIcon({ ingredient, segment, size = 48 }: IngredientIco
       >
         {/* Use <img> for SVGs — next/image optimization breaks SVGs on Vercel */}
         <img
-          src={`/icons/${ingredient.id}.svg`}
+          src={`/icons/${ingredient.iconId}.svg`}
           alt={ingredient.name}
           width={imgSize}
           height={imgSize}

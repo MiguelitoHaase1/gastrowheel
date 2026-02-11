@@ -5,11 +5,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChefHat, Lightbulb, Sparkles } from "lucide-react";
 import { useDishStore } from "@/store/dish-store";
 import { dishDescriptions, dishNotes } from "@/lib/data";
-import type { DishDescription, DishNote } from "@gastrowheel/data";
+import type { DishDescription, DishNote, WheelSegment } from "@gastrowheel/data";
+
+const SWEET_KEYWORDS = [
+  "cake", "dessert", "candy", "jam", "cookie", "pudding",
+  "pie", "tart", "chocolate", "ice cream", "sorbet", "compote", "marmalade",
+  "muffin", "brownie", "pastry", "sweet",
+];
 
 interface ScoredDish {
   dish: DishDescription;
   note: DishNote | undefined;
+  score: number;
   matchCount: number;
   matchedIngredients: string[];
   quality: "strong" | "good" | "partial";
@@ -34,21 +41,17 @@ function scoreDish(
 
   for (const name of ingredientNames) {
     const lower = name.toLowerCase();
-    // Check for exact word match or substring match (handles plurals, partial names)
     if (dishText.includes(lower)) {
       matched.push(name);
       continue;
     }
-    // Try matching with at least 4 chars for shorter ingredient names
     if (lower.length >= 4) {
-      // Check if the stem (dropping trailing 's', 'es', etc.) matches
       const stem = lower.replace(/(s|es|ies)$/, "");
       if (stem.length >= 3 && dishText.includes(stem)) {
         matched.push(name);
         continue;
       }
     }
-    // Check if any word in the dish text starts with the ingredient name
     const words = dishText.split(/\s+/);
     if (words.some((w) => w.startsWith(lower) || lower.startsWith(w))) {
       matched.push(name);
@@ -56,6 +59,12 @@ function scoreDish(
   }
 
   return { matchCount: matched.length, matchedIngredients: matched };
+}
+
+/** Check if a dish is sweet/dessert based on keyword heuristic */
+function isSweetDish(dish: DishDescription): boolean {
+  const text = [dish.dishName ?? "", dish.descriptions.en ?? ""].join(" ").toLowerCase();
+  return SWEET_KEYWORDS.some((kw) => text.includes(kw));
 }
 
 function qualityLabel(
@@ -82,29 +91,55 @@ export function DishSuggestions() {
     [selections],
   );
 
+  // Track which segments the user has covered
+  const selectedSegments = useMemo(() => {
+    const segs = new Set<WheelSegment>();
+    for (const s of selections) segs.add(s.segment);
+    return segs;
+  }, [selections]);
+
+  const hasSweetIngredient = selectedSegments.has("Sweet");
+
   const scoredDishes = useMemo(() => {
     if (ingredientNames.length === 0) return [];
 
     const results: ScoredDish[] = [];
 
     for (const dish of dishDescriptions) {
-      // Skip dishes without a name or English description
       if (!dish.dishName || !dish.descriptions.en) continue;
 
       const { matchCount, matchedIngredients } = scoreDish(dish, ingredientNames);
 
       if (matchCount > 0) {
-        const quality = qualityLabel(matchCount, ingredientNames.length);
-        const note = dishNotes.find((n) => n.dishPk === dish.dishPk);
-        results.push({ dish, note, matchCount, matchedIngredients, quality });
+        // Savory bias: penalize sweet/dessert dishes when no Sweet-segment ingredient selected
+        let adjustedScore = matchCount;
+        if (!hasSweetIngredient && isSweetDish(dish)) {
+          adjustedScore = Math.max(0, matchCount - 1);
+        }
+
+        // Segment diversity bonus: count how many distinct segments the matched ingredients span
+        const matchedSegments = new Set<WheelSegment>();
+        for (const name of matchedIngredients) {
+          for (const sel of selections) {
+            if (sel.ingredient.name === name) matchedSegments.add(sel.segment);
+          }
+        }
+        if (matchedSegments.size >= 3) adjustedScore += 0.5;
+        if (matchedSegments.size >= 5) adjustedScore += 0.5;
+
+        if (adjustedScore > 0) {
+          const quality = qualityLabel(matchCount, ingredientNames.length);
+          const note = dishNotes.find((n) => n.dishPk === dish.dishPk);
+          results.push({ dish, note, score: adjustedScore, matchCount, matchedIngredients, quality });
+        }
       }
     }
 
-    // Sort by match count descending, then by quality
+    // Sort by adjusted score descending, then by quality
     const qualityOrder = { strong: 0, good: 1, partial: 2 };
     results.sort(
       (a, b) =>
-        b.matchCount - a.matchCount || qualityOrder[a.quality] - qualityOrder[b.quality],
+        b.score - a.score || qualityOrder[a.quality] - qualityOrder[b.quality],
     );
 
     // Deduplicate by dishName (keep the highest scoring entry)
@@ -115,7 +150,7 @@ export function DishSuggestions() {
       seen.add(key);
       return true;
     });
-  }, [ingredientNames]);
+  }, [ingredientNames, hasSweetIngredient, selections]);
 
   // Empty state: no ingredients selected
   if (selections.length === 0) {

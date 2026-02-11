@@ -71,6 +71,7 @@ function isX(val: string): boolean {
 
 interface IngredientData {
   id: number;
+  iconId: number;
   name: string;
   roles: string[];
   roleCategory: string;
@@ -86,13 +87,14 @@ interface IngredientData {
   hasIcon: boolean;
 }
 
-const ingredients: IngredientData[] = records.map((row) => {
+const ingredients: IngredientData[] = records.map((row, index) => {
   const roles = DISH_ROLES.filter((r) => isX(row[r]));
   const primaryRole = roles[0] ?? "OtherTops";
   const roleCategory = ROLE_CATEGORIES[primaryRole] ?? "Top";
 
   return {
-    id: parseInt(row.id, 10),
+    id: index + 1,
+    iconId: parseInt(row.id, 10),
     name: row.name,
     roles,
     roleCategory,

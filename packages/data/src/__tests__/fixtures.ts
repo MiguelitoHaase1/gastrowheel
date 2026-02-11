@@ -3,6 +3,7 @@ import type { Ingredient } from "../types";
 /** Common Mediterranean tomato */
 export const tomato: Ingredient = {
   id: 1,
+  iconId: 1,
   name: "Tomato",
   roles: ["Lightbulks"],
   roleCategory: "Bulk",
@@ -21,6 +22,7 @@ export const tomato: Ingredient = {
 /** Common European onion */
 export const onion: Ingredient = {
   id: 2,
+  iconId: 2,
   name: "Onion",
   roles: ["Alliums"],
   roleCategory: "Boost",
@@ -39,6 +41,7 @@ export const onion: Ingredient = {
 /** Common spice — cumin */
 export const cumin: Ingredient = {
   id: 3,
+  iconId: 3,
   name: "Cumin",
   roles: ["Spices"],
   roleCategory: "Boost",
@@ -57,6 +60,7 @@ export const cumin: Ingredient = {
 /** Exotic ingredient — galangal */
 export const galangal: Ingredient = {
   id: 4,
+  iconId: 4,
   name: "Galangal",
   roles: ["Spices"],
   roleCategory: "Boost",
@@ -75,6 +79,7 @@ export const galangal: Ingredient = {
 /** Exotic — saffron */
 export const saffron: Ingredient = {
   id: 5,
+  iconId: 5,
   name: "Saffron",
   roles: ["Spices"],
   roleCategory: "Boost",
@@ -93,6 +98,7 @@ export const saffron: Ingredient = {
 /** Contains nuts — walnut */
 export const walnut: Ingredient = {
   id: 6,
+  iconId: 6,
   name: "Walnut",
   roles: ["Nuts"],
   roleCategory: "Top",
@@ -111,6 +117,7 @@ export const walnut: Ingredient = {
 /** Olive oil — splash category */
 export const oliveOil: Ingredient = {
   id: 7,
+  iconId: 7,
   name: "Olive Oil",
   roles: ["Oils"],
   roleCategory: "Splash",
@@ -129,6 +136,7 @@ export const oliveOil: Ingredient = {
 /** Exotic — sumac, no common markets */
 export const sumac: Ingredient = {
   id: 8,
+  iconId: 8,
   name: "Sumac",
   roles: ["Spices"],
   roleCategory: "Boost",
@@ -144,6 +152,63 @@ export const sumac: Ingredient = {
   hasIcon: false,
 };
 
+/** Plain noodles — Soft segment */
+export const noodles: Ingredient = {
+  id: 203,
+  iconId: 203,
+  name: "noodles",
+  roles: ["Starch"],
+  roleCategory: "Bulk",
+  dietary: ["Vegan", "Vegetarian", "LactoseFree", "NutFree"],
+  tastes: [],
+  aromas: ["NUTTY"],
+  seasons: ["Spring", "Summer", "Fall", "Winter"],
+  regions: ["EastAsian"],
+  cookingStyles: ["FastAndFresh"],
+  recipeTags: ["Boil"],
+  wheelSegments: ["Soft"],
+  commonIn: ["en", "da", "de", "es"],
+  hasIcon: false,
+};
+
+/** Rice noodles — Soft segment (variant of noodles) */
+export const riceNoodles: Ingredient = {
+  id: 721,
+  iconId: 721,
+  name: "rice noodles",
+  roles: ["Starch"],
+  roleCategory: "Bulk",
+  dietary: ["Glutenfree", "Vegan", "Vegetarian", "LactoseFree", "NutFree"],
+  tastes: [],
+  aromas: [],
+  seasons: ["Spring", "Summer", "Fall", "Winter"],
+  regions: ["EastAsian"],
+  cookingStyles: ["FastAndFresh"],
+  recipeTags: ["Boil"],
+  wheelSegments: ["Soft"],
+  commonIn: [],
+  hasIcon: false,
+};
+
+/** Soba noodles — Soft segment (variant of noodles) */
+export const sobaNoodles: Ingredient = {
+  id: 751,
+  iconId: 751,
+  name: "soba noodles",
+  roles: ["Starch"],
+  roleCategory: "Bulk",
+  dietary: ["Vegan", "Vegetarian", "LactoseFree", "NutFree"],
+  tastes: [],
+  aromas: [],
+  seasons: ["Spring", "Summer", "Fall", "Winter"],
+  regions: ["EastAsian"],
+  cookingStyles: ["FastAndFresh"],
+  recipeTags: ["Boil"],
+  wheelSegments: ["Soft"],
+  commonIn: [],
+  hasIcon: false,
+};
+
 /** All test ingredients as an array */
 export const allTestIngredients: Ingredient[] = [
   tomato,
@@ -154,4 +219,7 @@ export const allTestIngredients: Ingredient[] = [
   walnut,
   oliveOil,
   sumac,
+  noodles,
+  riceNoodles,
+  sobaNoodles,
 ];

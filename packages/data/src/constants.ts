@@ -14,18 +14,16 @@ export const WHEEL_SEGMENTS: WheelSegment[] = [
   "Spicy",
 ];
 
-/** Suggested walk order for building a balanced dish */
+/** Suggested walk order for building a balanced dish (8 guided segments) */
 export const WALK_ORDER: WheelSegment[] = [
   "Soft",
-  "Umami",
-  "Oil",
-  "Aroma",
   "Fresh",
+  "Aroma",
+  "Oil",
+  "Umami",
   "Sour",
   "Sweet",
   "Crunch",
-  "Spicy",
-  "Bitter",
 ];
 
 /** Colors for each wheel segment */
@@ -113,10 +111,10 @@ export const DISH_ROLES: DishRole[] = [
 /** Pairing engine weight configuration */
 export const PAIRING_WEIGHTS = {
   aromaOverlap: 0.35,
-  tasteBalance: 0.25,
+  tasteBalance: 0.30,
   regionAffinity: 0.15,
-  seasonMatch: 0.1,
-  roleDiversity: 0.1,
+  seasonMatch: 0.05,
+  roleDiversity: 0.10,
   commonality: 0.05,
 } as const;
 

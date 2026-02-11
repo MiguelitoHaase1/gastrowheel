@@ -16,7 +16,7 @@ interface DishStore {
   currentSegment: WheelSegment | null;
   completedSegments: Set<WheelSegment>;
   walkIndex: number;
-  autoWalking: boolean;
+  guidedWalkDone: boolean;
 
   // Filters
   dietaryFilters: DietaryFlag[];
@@ -27,10 +27,8 @@ interface DishStore {
 
   // Actions
   setCurrentSegment: (segment: WheelSegment) => void;
-  stopAutoWalk: () => void;
   addIngredient: (segment: WheelSegment, ingredient: Ingredient) => void;
   removeIngredient: (segment: WheelSegment, ingredientId: number) => void;
-  advanceWalk: () => void;
   reset: () => void;
   suggestedSegment: () => WheelSegment;
 
@@ -45,10 +43,10 @@ interface DishStore {
 
 export const useDishStore = create<DishStore>((set, get) => ({
   selections: [],
-  currentSegment: null,
+  currentSegment: WALK_ORDER[0],
   completedSegments: new Set(),
   walkIndex: 0,
-  autoWalking: true,
+  guidedWalkDone: false,
 
   dietaryFilters: [],
   seasonFilters: [],
@@ -57,8 +55,6 @@ export const useDishStore = create<DishStore>((set, get) => ({
   commonalityFilter: "common",
 
   setCurrentSegment: (segment) => set({ currentSegment: segment }),
-
-  stopAutoWalk: () => set({ autoWalking: false }),
 
   addIngredient: (segment, ingredient) =>
     set((state) => {
@@ -70,7 +66,32 @@ export const useDishStore = create<DishStore>((set, get) => ({
       const newSelections = [...state.selections, { segment, ingredient }];
       const newCompleted = new Set(state.completedSegments);
       newCompleted.add(segment);
-      return { selections: newSelections, completedSegments: newCompleted };
+
+      // Auto-advance to next guided segment if still in guided walk
+      let nextSegment: WheelSegment | null = state.currentSegment;
+      let nextWalkIndex = state.walkIndex;
+      let nextGuidedDone = state.guidedWalkDone;
+
+      if (!state.guidedWalkDone) {
+        const currentWalkIdx = WALK_ORDER.indexOf(segment);
+        if (currentWalkIdx >= 0 && currentWalkIdx >= state.walkIndex) {
+          const next = currentWalkIdx + 1;
+          if (next < WALK_ORDER.length) {
+            nextSegment = WALK_ORDER[next];
+            nextWalkIndex = next;
+          } else {
+            nextGuidedDone = true;
+          }
+        }
+      }
+
+      return {
+        selections: newSelections,
+        completedSegments: newCompleted,
+        currentSegment: nextSegment,
+        walkIndex: nextWalkIndex,
+        guidedWalkDone: nextGuidedDone,
+      };
     }),
 
   removeIngredient: (segment, ingredientId) =>
@@ -84,22 +105,13 @@ export const useDishStore = create<DishStore>((set, get) => ({
       return { selections: newSelections, completedSegments: newCompleted };
     }),
 
-  advanceWalk: () =>
-    set((state) => {
-      const nextIndex = Math.min(state.walkIndex + 1, WALK_ORDER.length - 1);
-      return {
-        walkIndex: nextIndex,
-        currentSegment: WALK_ORDER[nextIndex],
-      };
-    }),
-
   reset: () =>
     set({
       selections: [],
-      currentSegment: null,
+      currentSegment: WALK_ORDER[0],
       completedSegments: new Set(),
       walkIndex: 0,
-      autoWalking: true,
+      guidedWalkDone: false,
       dietaryFilters: [],
       seasonFilters: [],
       regionFilters: [],
@@ -109,6 +121,9 @@ export const useDishStore = create<DishStore>((set, get) => ({
 
   suggestedSegment: () => {
     const state = get();
+    if (state.guidedWalkDone) {
+      return state.currentSegment ?? WALK_ORDER[0];
+    }
     for (let i = state.walkIndex; i < WALK_ORDER.length; i++) {
       if (!state.completedSegments.has(WALK_ORDER[i])) {
         return WALK_ORDER[i];

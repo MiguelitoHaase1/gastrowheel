@@ -12,7 +12,7 @@ export function DishBuilder() {
   const completedSegments = useDishStore((s) => s.completedSegments);
   const removeIngredient = useDishStore((s) => s.removeIngredient);
   const setCurrentSegment = useDishStore((s) => s.setCurrentSegment);
-  const advanceWalk = useDishStore((s) => s.advanceWalk);
+  const guidedWalkDone = useDishStore((s) => s.guidedWalkDone);
   const reset = useDishStore((s) => s.reset);
   const suggestedSegment = useDishStore((s) => s.suggestedSegment);
 
@@ -126,12 +126,9 @@ export function DishBuilder() {
             })}
           </AnimatePresence>
 
-          {completedSegments.size < WALK_ORDER.length && (
+          {!guidedWalkDone && (
             <button
-              onClick={() => {
-                advanceWalk();
-                setCurrentSegment(suggested);
-              }}
+              onClick={() => setCurrentSegment(suggested)}
               className="w-full py-2 rounded-lg text-sm font-medium text-white transition-colors"
               style={{ backgroundColor: SEGMENT_COLORS[suggested].accent }}
             >

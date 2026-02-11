@@ -35,4 +35,4 @@ export {
   COLORS,
 } from "./constants";
 
-export { jaccard, scorePairing, getPairingSuggestions, applyFilters } from "./pairing";
+export { jaccard, nameOverlaps, scorePairing, getPairingSuggestions, applyFilters } from "./pairing";

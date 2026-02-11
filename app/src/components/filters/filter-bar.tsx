@@ -11,6 +11,7 @@ const DIETARY_OPTIONS: { value: DietaryFlag; label: string }[] = [
   { value: "LactoseFree", label: "Lactose-free" },
   { value: "NutFree", label: "Nut-free" },
   { value: "Diabetic", label: "Diabetic" },
+  { value: "FODMAPS", label: "Low FODMAP" },
 ];
 
 const REGION_OPTIONS: { value: Region; label: string }[] = [
@@ -20,6 +21,7 @@ const REGION_OPTIONS: { value: Region; label: string }[] = [
   { value: "LatinAmerican", label: "Latin American" },
   { value: "European", label: "European" },
   { value: "MiddleEastern", label: "Middle Eastern" },
+  { value: "Exotic", label: "Exotic" },
 ];
 
 function FilterChip({
@@ -81,26 +83,32 @@ export function FilterBar() {
       </div>
 
       <div className="space-y-2">
-        <div className="flex flex-wrap gap-1.5">
-          {DIETARY_OPTIONS.map((opt) => (
-            <FilterChip
-              key={opt.value}
-              label={opt.label}
-              isActive={dietaryFilters.includes(opt.value)}
-              onClick={() => toggleDietaryFilter(opt.value)}
-            />
-          ))}
+        <div>
+          <p className="text-[10px] font-medium text-stone-400 uppercase tracking-wider mb-1">Diet</p>
+          <div className="flex flex-wrap gap-1.5">
+            {DIETARY_OPTIONS.map((opt) => (
+              <FilterChip
+                key={opt.value}
+                label={opt.label}
+                isActive={dietaryFilters.includes(opt.value)}
+                onClick={() => toggleDietaryFilter(opt.value)}
+              />
+            ))}
+          </div>
         </div>
 
-        <div className="flex flex-wrap gap-1.5">
-          {REGION_OPTIONS.map((opt) => (
-            <FilterChip
-              key={opt.value}
-              label={opt.label}
-              isActive={regionFilters.includes(opt.value)}
-              onClick={() => toggleRegionFilter(opt.value)}
-            />
-          ))}
+        <div>
+          <p className="text-[10px] font-medium text-stone-400 uppercase tracking-wider mb-1">Cuisine</p>
+          <div className="flex flex-wrap gap-1.5">
+            {REGION_OPTIONS.map((opt) => (
+              <FilterChip
+                key={opt.value}
+                label={opt.label}
+                isActive={regionFilters.includes(opt.value)}
+                onClick={() => toggleRegionFilter(opt.value)}
+              />
+            ))}
+          </div>
         </div>
       </div>
 

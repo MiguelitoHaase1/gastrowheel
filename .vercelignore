@@ -4,5 +4,5 @@ node_modules
 *.csv
 *.xlsx
 scripts/
-Icons/
+/Icons
 status.md

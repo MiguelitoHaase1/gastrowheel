@@ -107,6 +107,7 @@ export type ContentLanguage = "en" | "da" | "de" | "es" | "lv" | "et" | "lt";
 /** Core ingredient record */
 export interface Ingredient {
   id: number;
+  iconId: number;
   name: string;
   roles: DishRole[];
   roleCategory: RoleCategory;

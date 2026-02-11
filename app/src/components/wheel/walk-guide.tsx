@@ -8,24 +8,24 @@ export function WalkGuide() {
   const completedSegments = useDishStore((s) => s.completedSegments);
   const currentSegment = useDishStore((s) => s.currentSegment);
   const setCurrentSegment = useDishStore((s) => s.setCurrentSegment);
-  const stopAutoWalk = useDishStore((s) => s.stopAutoWalk);
   const selections = useDishStore((s) => s.selections);
   const suggestedSegment = useDishStore((s) => s.suggestedSegment);
+  const guidedWalkDone = useDishStore((s) => s.guidedWalkDone);
 
   const suggested = suggestedSegment();
-  const completedCount = completedSegments.size;
-  const progress = (completedCount / WALK_ORDER.length) * 100;
+  const guidedCompleted = WALK_ORDER.filter((seg) => completedSegments.has(seg)).length;
+  const progress = (guidedCompleted / WALK_ORDER.length) * 100;
 
   return (
     <div className="py-3 space-y-2.5">
       {/* Progress header */}
       <div className="flex items-center justify-between">
         <p className="text-sm font-medium text-stone-700">
-          {completedCount === 0
+          {guidedCompleted === 0
             ? "Start building your dish"
-            : completedCount === WALK_ORDER.length
-              ? "All components filled!"
-              : `${completedCount} of ${WALK_ORDER.length} components`}
+            : guidedWalkDone
+              ? "Free mode — pick any segment"
+              : `${guidedCompleted} of ${WALK_ORDER.length} components`}
         </p>
         {selections.length > 0 && (
           <p className="text-xs text-stone-400 tabular-nums">
@@ -53,7 +53,7 @@ export function WalkGuide() {
           return (
             <button
               key={seg}
-              onClick={() => { stopAutoWalk(); setCurrentSegment(seg); }}
+              onClick={() => setCurrentSegment(seg)}
               title={seg}
               className={`relative flex-1 h-8 rounded-md text-[10px] font-medium transition-all flex items-center justify-center gap-0.5 border ${
                 isCurrent

@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 import { AnimatePresence } from "framer-motion";
 import type { Ingredient, WheelSegment } from "@gastrowheel/data";
-import { getPairingSuggestions, applyFilters } from "@gastrowheel/data";
+import { getPairingSuggestions, nameOverlaps } from "@gastrowheel/data";
 import { useDishStore } from "@/store/dish-store";
 import { IngredientCard } from "./ingredient-card";
 import { useIngredients } from "@/hooks/use-ingredients";
@@ -13,7 +13,6 @@ export function IngredientGrid() {
   const selections = useDishStore((s) => s.selections);
   const addIngredient = useDishStore((s) => s.addIngredient);
   const removeIngredient = useDishStore((s) => s.removeIngredient);
-  const stopAutoWalk = useDishStore((s) => s.stopAutoWalk);
   const dietaryFilters = useDishStore((s) => s.dietaryFilters);
   const seasonFilters = useDishStore((s) => s.seasonFilters);
   const regionFilters = useDishStore((s) => s.regionFilters);
@@ -42,8 +41,13 @@ export function IngredientGrid() {
       commonality: commonalityFilter !== "all" ? commonalityFilter : undefined,
     }, 50);
 
-    // Safety: ensure no already-selected ingredient leaks through
-    return results.filter((p) => !selectedIds.has(p.ingredient.id));
+    // Safety: ensure no already-selected ingredient or name variant leaks through
+    const selectedNames = selectedIngredients.map((s) => s.name);
+    return results.filter(
+      (p) =>
+        !selectedIds.has(p.ingredient.id) &&
+        !selectedNames.some((name) => nameOverlaps(name, p.ingredient.name)),
+    );
   }, [
     currentSegment,
     allIngredients,
@@ -88,13 +92,12 @@ export function IngredientGrid() {
       <AnimatePresence mode="popLayout">
         {pairings.map((p) => (
           <IngredientCard
-            key={p.ingredient.id}
+            key={`${currentSegment}-${p.ingredient.id}`}
             ingredient={p.ingredient}
             segment={currentSegment}
             pairingScore={selectedIngredients.length > 0 ? p : undefined}
             isSelected={selectedIds.has(p.ingredient.id)}
             onToggle={() => {
-              stopAutoWalk();
               if (selectedIds.has(p.ingredient.id)) {
                 removeIngredient(currentSegment, p.ingredient.id);
               } else {

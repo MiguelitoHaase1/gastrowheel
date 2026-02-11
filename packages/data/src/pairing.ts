@@ -9,6 +9,21 @@ import type {
 } from "./types";
 import { PAIRING_WEIGHTS, ROLE_CATEGORIES } from "./constants";
 
+/**
+ * Check if two ingredient names overlap by sharing a significant word (4+ chars).
+ * "noodles" overlaps "rice noodles" (shared word "noodles").
+ * "rice noodles" overlaps "soba noodles" (shared word "noodles").
+ * "pepper" does NOT overlap "peppermint" (no shared whole word).
+ */
+export function nameOverlaps(a: string, b: string): boolean {
+  const la = a.toLowerCase();
+  const lb = b.toLowerCase();
+  if (la === lb) return true;
+  const wordsA = la.split(/\s+/);
+  const wordsB = new Set(lb.split(/\s+/));
+  return wordsA.some((w) => w.length >= 4 && wordsB.has(w));
+}
+
 /** Jaccard similarity: |A ∩ B| / |A ∪ B| */
 export function jaccard<T>(a: T[], b: T[]): number {
   if (a.length === 0 && b.length === 0) return 0;
@@ -122,16 +137,20 @@ function scoreCommonality(candidate: Ingredient): number {
  */
 export function scorePairing(candidate: Ingredient, selected: Ingredient[]): PairingScore {
   if (selected.length === 0) {
+    // Better initial scoring: differentiate by commonality and add variety via ID-seeded tiebreaker
+    const commonScore = scoreCommonality(candidate);
+    const tiebreaker = ((candidate.id * 2654435761) >>> 0) / 4294967296; // deterministic hash [0,1)
+    const totalScore = commonScore * 0.7 + tiebreaker * 0.3;
     return {
       ingredient: candidate,
-      totalScore: 0.5 + scoreCommonality(candidate) * 0.1,
+      totalScore,
       breakdown: {
-        aromaOverlap: 0.5,
-        tasteBalance: 0.5,
-        regionAffinity: 0.5,
-        seasonMatch: 0.5,
-        roleDiversity: 0.5,
-        commonality: scoreCommonality(candidate),
+        aromaOverlap: 0,
+        tasteBalance: 0,
+        regionAffinity: 0,
+        seasonMatch: 0,
+        roleDiversity: 0,
+        commonality: commonScore,
       },
     };
   }
@@ -172,9 +191,13 @@ export function getPairingSuggestions(
   limit = 20,
 ): PairingScore[] {
   const selectedIds = new Set(selected.map((s) => s.id));
+  const selectedNames = selected.map((s) => s.name);
 
   let candidates = allIngredients.filter(
-    (ing) => ing.wheelSegments.includes(targetSegment) && !selectedIds.has(ing.id),
+    (ing) =>
+      ing.wheelSegments.includes(targetSegment) &&
+      !selectedIds.has(ing.id) &&
+      !selectedNames.some((name) => nameOverlaps(name, ing.name)),
   );
 
   if (filters) {
@@ -224,9 +247,9 @@ export function applyFilters(
   }
 
   if (filters.commonality === "common") {
-    result = result.filter((ing) => ing.commonIn.length > 0);
+    result = result.filter((ing) => ing.commonIn.includes("da"));
   } else if (filters.commonality === "exotic") {
-    result = result.filter((ing) => ing.commonIn.length === 0);
+    result = result.filter((ing) => !ing.commonIn.includes("da"));
   }
 
   return result;
