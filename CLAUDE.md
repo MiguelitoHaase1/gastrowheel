@@ -160,13 +160,39 @@ app/src/
 └── lib/data.ts               # Re-exports from generated modules
 ```
 
-### MCP Server Tools
+### MCP Server Tools (10 tools)
 
 1. `get_ingredients_by_segment` — Filter by wheel segment + dietary/season/region
 2. `get_ingredient_details` — Lookup by ID or name
 3. `get_pairing_suggestions` — Ranked pairings given selected IDs + target segment
 4. `suggest_dishes` — Match ingredients against dish descriptions
 5. `search_ingredients` — Free-text + structured filter search
+6. `get_cooking_guide` — Cooking steps + recipes for selected ingredients
+7. `get_wheel_structure` — Wheel constants, colors, weights, stats
+8. `list_filter_options` — All valid enum values for every filter
+9. `get_cooking_components` — Direct access to 71 cooking modules + 60 recipes
+10. `get_ingredient_icon` — SVG icon content for an ingredient
+
+### REST API (10 endpoints)
+
+The same 10 capabilities are exposed as HTTP endpoints for cross-origin consumption (e.g., Lovable, external frontends). Full documentation: [`API-documentation.md`](./API-documentation.md).
+
+```
+GET  /api/filters                        — All valid filter enum values
+GET  /api/wheel/structure                — Wheel constants + stats
+GET  /api/ingredients/by-segment         — Ingredients in a wheel segment
+GET  /api/ingredients/search             — Search/filter ingredients
+GET  /api/ingredients/{id}               — Single ingredient (by ID or name)
+GET  /api/ingredients/{id}/icon          — SVG icon (image/svg+xml)
+GET  /api/cooking-components             — Cooking components + recipe notes
+POST /api/pairing-suggestions            — Ranked pairing suggestions
+POST /api/suggest-dishes                 — Fuzzy dish matching
+POST /api/cooking-guide                  — Cooking steps + recipes
+```
+
+**Base URL:** `https://gastrowheel.vercel.app`
+**CORS:** `Access-Control-Allow-Origin: *` on all endpoints
+**Caching:** GET routes cached at CDN edge (`s-maxage=3600`)
 
 ### Pairing Engine Weights
 
