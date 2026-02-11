@@ -178,3 +178,75 @@ app/src/
 | Season match | 0.10 | Shared seasonality |
 | Role diversity | 0.10 | Favor underrepresented role categories (Bulk/Boost/Top/Splash) |
 | Commonality | 0.05 | Prefer widely available ingredients |
+
+## Deployment
+
+### Vercel (Production)
+
+- **URL**: https://gastrowheel.vercel.app
+- **GitHub**: https://github.com/MiguelitoHaase1/gastrowheel
+- **Project ID**: `prj_u9WDrBRGYMXiocIoPTDvgxpbX4C7`
+- **Team**: `michael-haases-projects-5567a244`
+
+### Vercel Monorepo Configuration
+
+This is a **pnpm workspace monorepo** deployed with root directory set to `app/`. The config was set via the Vercel API (not `vercel.json`) because the CLI `vercel project` doesn't support setting root directory directly.
+
+| Setting | Value |
+|---|---|
+| Root Directory | `app` |
+| Framework | `nextjs` |
+| Install Command | `cd .. && pnpm install` |
+| Build Command | `cd .. && pnpm -r build` |
+| Node.js | 24.x |
+
+### Deploy Commands
+
+```bash
+# Push to GitHub (auto-deploy triggers too)
+git push origin main
+
+# Manual production deploy via CLI
+vercel --prod --yes
+
+# Check deployment logs
+vercel inspect <deployment-url> --logs
+```
+
+### Deployment Gotchas (Learned the Hard Way)
+
+1. **`.beads/bd.sock` breaks Vercel upload** — Socket files cause `Unknown system error -102`. Fix: add `.beads` to `.vercelignore`.
+
+2. **Project name validation** — Vercel rejects names derived from deep directory paths. Always specify `--project gastrowheel` when linking.
+
+3. **Framework auto-detection fails for monorepos** — Vercel looks for `next` in root `package.json`, not the workspace. Must set root directory to `app/` and framework to `nextjs` via the API:
+   ```bash
+   curl -X PATCH "https://api.vercel.com/v9/projects/$PROJECT_ID?teamId=$TEAM_ID" \
+     -H "Authorization: Bearer $TOKEN" \
+     -H "Content-Type: application/json" \
+     -d '{"rootDirectory":"app","framework":"nextjs","installCommand":"cd .. && pnpm install","buildCommand":"cd .. && pnpm -r build"}'
+   ```
+   Token lives at: `~/Library/Application Support/com.vercel.cli/auth.json`
+
+4. **`vercel.json` with `outputDirectory: "app/.next"` doesn't work** — Vercel needs the root directory setting, not just output redirection. Use project-level API settings instead.
+
+5. **TypeScript strict mode in `next build`** — Turbopack dev mode doesn't catch all type errors. `ringColor` is a Tailwind utility, NOT a valid CSS property. Use `boxShadow` for inline ring effects: `boxShadow: "0 0 0 2px white, 0 0 0 4px ${color}"`
+
+6. **`.vercelignore` is essential** — Prevents uploading socket files, large CSVs, and local-only state:
+   ```
+   .beads
+   .git
+   node_modules
+   *.csv
+   *.xlsx
+   scripts/
+   Icons/
+   status.md
+   ```
+
+### Testing
+
+```bash
+pnpm --filter @gastrowheel/data test   # 29 unit tests (vitest)
+pnpm -r build                           # Full build verification
+```
