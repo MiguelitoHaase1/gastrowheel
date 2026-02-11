@@ -210,7 +210,7 @@ All API requests require an `x-api-key` header. Include it on every fetch call:
 
 ```typescript
 const API_BASE = "https://gastrowheel.vercel.app";
-const API_KEY = "YOUR_API_KEY"; // will be provided separately
+const API_KEY = "346b20b485d4b7eb4973da7e593801743c870822fe5273730d96211de752e4f9";
 
 async function apiFetch(path: string, options?: RequestInit) {
   const res = await fetch(`${API_BASE}${path}`, {
