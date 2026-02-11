@@ -1,6 +1,4 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { Ratelimit } from "@upstash/ratelimit";
-import { Redis } from "@upstash/redis/cloudflare";
 
 // ---------------------------------------------------------------------------
 // CORS headers (duplicated from helpers.ts — middleware runs in Edge Runtime
@@ -14,25 +12,47 @@ const corsHeaders: Record<string, string> = {
 };
 
 // ---------------------------------------------------------------------------
-// Upstash rate limiter (lazy-initialized)
+// Upstash rate limiting via REST API (no SDK — Edge Runtime compatible)
 // ---------------------------------------------------------------------------
 
-let ratelimit: Ratelimit | null = null;
+const RATE_LIMIT = 60; // requests per window
+const WINDOW_MS = 60_000; // 1 minute
 
-function getRateLimiter(): Ratelimit | null {
-  if (ratelimit !== null) return ratelimit;
-
+async function checkRateLimit(ip: string): Promise<{
+  success: boolean;
+  remaining: number;
+  reset: number;
+} | null> {
   const url = process.env.UPSTASH_REDIS_REST_URL;
   const token = process.env.UPSTASH_REDIS_REST_TOKEN;
-
   if (!url || !token) return null;
 
-  ratelimit = new Ratelimit({
-    redis: new Redis({ url, token }),
-    limiter: Ratelimit.slidingWindow(60, "1 m"),
-    prefix: "gastrowheel",
-  });
-  return ratelimit;
+  const now = Date.now();
+  const window = Math.floor(now / WINDOW_MS);
+  const key = `gastrowheel:${ip}:${window}`;
+  const reset = (window + 1) * WINDOW_MS;
+
+  try {
+    // INCR the counter and set TTL in a pipeline
+    const res = await fetch(`${url}/pipeline`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}` },
+      body: JSON.stringify([
+        ["INCR", key],
+        ["PEXPIRE", key, String(WINDOW_MS)],
+      ]),
+    });
+
+    if (!res.ok) return null;
+
+    const results = (await res.json()) as { result: number }[];
+    const count = results[0].result;
+    const remaining = Math.max(0, RATE_LIMIT - count);
+
+    return { success: count <= RATE_LIMIT, remaining, reset };
+  } catch {
+    return null;
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -58,47 +78,40 @@ export async function middleware(request: NextRequest) {
   }
 
   // --- Layer 3: Rate limiting ---
-  const limiter = await getRateLimiter();
-  if (limiter) {
-    const ip =
-      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
-      "anonymous";
+  const ip =
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+    "anonymous";
 
-    try {
-      const result = await limiter.limit(ip);
+  const result = await checkRateLimit(ip);
 
-      const rateLimitHeaders: Record<string, string> = {
-        "X-RateLimit-Limit": String(result.limit),
-        "X-RateLimit-Remaining": String(result.remaining),
-        "X-RateLimit-Reset": String(result.reset),
-      };
+  if (result) {
+    const rateLimitHeaders: Record<string, string> = {
+      "X-RateLimit-Limit": String(RATE_LIMIT),
+      "X-RateLimit-Remaining": String(result.remaining),
+      "X-RateLimit-Reset": String(result.reset),
+    };
 
-      if (!result.success) {
-        return NextResponse.json(
-          { error: "Rate limit exceeded. Try again later." },
-          {
-            status: 429,
-            headers: {
-              ...corsHeaders,
-              ...rateLimitHeaders,
-              "Retry-After": String(
-                Math.ceil((result.reset - Date.now()) / 1000),
-              ),
-            },
+    if (!result.success) {
+      return NextResponse.json(
+        { error: "Rate limit exceeded. Try again later." },
+        {
+          status: 429,
+          headers: {
+            ...corsHeaders,
+            ...rateLimitHeaders,
+            "Retry-After": String(
+              Math.ceil((result.reset - Date.now()) / 1000),
+            ),
           },
-        );
-      }
-
-      // Attach rate limit headers to the response
-      const response = NextResponse.next();
-      for (const [key, value] of Object.entries(rateLimitHeaders)) {
-        response.headers.set(key, value);
-      }
-      return response;
-    } catch {
-      // Upstash down — let request through
-      return NextResponse.next();
+        },
+      );
     }
+
+    const response = NextResponse.next();
+    for (const [key, value] of Object.entries(rateLimitHeaders)) {
+      response.headers.set(key, value);
+    }
+    return response;
   }
 
   return NextResponse.next();
