@@ -1,12 +1,13 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { WheelSegment } from "@gastrowheel/data";
 import {
   WHEEL_SEGMENTS,
   SEGMENT_COLORS,
   DEGREES_PER_SEGMENT,
+  WALK_ORDER,
 } from "@gastrowheel/data";
 import { useDishStore } from "@/store/dish-store";
 
@@ -148,9 +149,34 @@ export function FlavorWheel() {
   const completedSegments = useDishStore((s) => s.completedSegments);
   const selections = useDishStore((s) => s.selections);
   const setCurrentSegment = useDishStore((s) => s.setCurrentSegment);
+  const stopAutoWalk = useDishStore((s) => s.stopAutoWalk);
+  const autoWalking = useDishStore((s) => s.autoWalking);
   const suggestedSegment = useDishStore((s) => s.suggestedSegment);
 
   const suggested = suggestedSegment();
+  const autoIndexRef = useRef(0);
+
+  // Auto-rotate through WALK_ORDER until user clicks a segment
+  useEffect(() => {
+    if (!autoWalking) return;
+
+    // Start immediately with first segment
+    setCurrentSegment(WALK_ORDER[0]);
+
+    const interval = setInterval(() => {
+      autoIndexRef.current = (autoIndexRef.current + 1) % WALK_ORDER.length;
+      setCurrentSegment(WALK_ORDER[autoIndexRef.current]);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, [autoWalking, setCurrentSegment]);
+
+  const handleSegmentClick = (segment: WheelSegment) => {
+    if (autoWalking) {
+      stopAutoWalk();
+    }
+    setCurrentSegment(segment);
+  };
 
   const selectionCounts = useMemo(() => {
     const counts: Record<string, number> = {};
@@ -176,7 +202,7 @@ export function FlavorWheel() {
             isCompleted={completedSegments.has(segment)}
             isSuggested={suggested === segment}
             selectionCount={selectionCounts[segment] ?? 0}
-            onClick={() => setCurrentSegment(segment)}
+            onClick={() => handleSegmentClick(segment)}
           />
         ))}
         <AnimatePresence>

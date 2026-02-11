@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import type { Ingredient, WheelSegment } from "@gastrowheel/data";
 import { SEGMENT_COLORS } from "@gastrowheel/data";
 
@@ -14,6 +13,7 @@ export function IngredientIcon({ ingredient, segment, size = 48 }: IngredientIco
   const colors = segment ? SEGMENT_COLORS[segment] : null;
 
   if (ingredient.hasIcon) {
+    const imgSize = size - 8;
     return (
       <div
         className="rounded-lg flex items-center justify-center overflow-hidden"
@@ -23,12 +23,14 @@ export function IngredientIcon({ ingredient, segment, size = 48 }: IngredientIco
           backgroundColor: colors?.bg ?? "#f5f5f4",
         }}
       >
-        <Image
+        {/* Use <img> for SVGs — next/image optimization breaks SVGs on Vercel */}
+        <img
           src={`/icons/${ingredient.id}.svg`}
           alt={ingredient.name}
-          width={size - 8}
-          height={size - 8}
+          width={imgSize}
+          height={imgSize}
           className="object-contain"
+          loading="lazy"
         />
       </div>
     );

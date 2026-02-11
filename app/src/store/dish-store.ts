@@ -16,6 +16,7 @@ interface DishStore {
   currentSegment: WheelSegment | null;
   completedSegments: Set<WheelSegment>;
   walkIndex: number;
+  autoWalking: boolean;
 
   // Filters
   dietaryFilters: DietaryFlag[];
@@ -26,6 +27,7 @@ interface DishStore {
 
   // Actions
   setCurrentSegment: (segment: WheelSegment) => void;
+  stopAutoWalk: () => void;
   addIngredient: (segment: WheelSegment, ingredient: Ingredient) => void;
   removeIngredient: (segment: WheelSegment, ingredientId: number) => void;
   advanceWalk: () => void;
@@ -46,6 +48,7 @@ export const useDishStore = create<DishStore>((set, get) => ({
   currentSegment: null,
   completedSegments: new Set(),
   walkIndex: 0,
+  autoWalking: true,
 
   dietaryFilters: [],
   seasonFilters: [],
@@ -54,6 +57,8 @@ export const useDishStore = create<DishStore>((set, get) => ({
   commonalityFilter: "common",
 
   setCurrentSegment: (segment) => set({ currentSegment: segment }),
+
+  stopAutoWalk: () => set({ autoWalking: false }),
 
   addIngredient: (segment, ingredient) =>
     set((state) => {
@@ -94,6 +99,7 @@ export const useDishStore = create<DishStore>((set, get) => ({
       currentSegment: null,
       completedSegments: new Set(),
       walkIndex: 0,
+      autoWalking: true,
       dietaryFilters: [],
       seasonFilters: [],
       regionFilters: [],

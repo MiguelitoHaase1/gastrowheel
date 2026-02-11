@@ -8,6 +8,7 @@ export function WalkGuide() {
   const completedSegments = useDishStore((s) => s.completedSegments);
   const currentSegment = useDishStore((s) => s.currentSegment);
   const setCurrentSegment = useDishStore((s) => s.setCurrentSegment);
+  const stopAutoWalk = useDishStore((s) => s.stopAutoWalk);
   const selections = useDishStore((s) => s.selections);
   const suggestedSegment = useDishStore((s) => s.suggestedSegment);
 
@@ -52,7 +53,7 @@ export function WalkGuide() {
           return (
             <button
               key={seg}
-              onClick={() => setCurrentSegment(seg)}
+              onClick={() => { stopAutoWalk(); setCurrentSegment(seg); }}
               title={seg}
               className={`relative flex-1 h-8 rounded-md text-[10px] font-medium transition-all flex items-center justify-center gap-0.5 border ${
                 isCurrent

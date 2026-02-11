@@ -13,6 +13,7 @@ export function IngredientGrid() {
   const selections = useDishStore((s) => s.selections);
   const addIngredient = useDishStore((s) => s.addIngredient);
   const removeIngredient = useDishStore((s) => s.removeIngredient);
+  const stopAutoWalk = useDishStore((s) => s.stopAutoWalk);
   const dietaryFilters = useDishStore((s) => s.dietaryFilters);
   const seasonFilters = useDishStore((s) => s.seasonFilters);
   const regionFilters = useDishStore((s) => s.regionFilters);
@@ -33,17 +34,21 @@ export function IngredientGrid() {
 
   const pairings = useMemo(() => {
     if (!currentSegment || allIngredients.length === 0) return [];
-    return getPairingSuggestions(allIngredients, selectedIngredients, currentSegment, {
+    const results = getPairingSuggestions(allIngredients, selectedIngredients, currentSegment, {
       dietary: dietaryFilters.length > 0 ? dietaryFilters : undefined,
       seasons: seasonFilters.length > 0 ? seasonFilters : undefined,
       regions: regionFilters.length > 0 ? regionFilters : undefined,
       searchQuery: searchQuery || undefined,
       commonality: commonalityFilter !== "all" ? commonalityFilter : undefined,
     }, 50);
+
+    // Safety: ensure no already-selected ingredient leaks through
+    return results.filter((p) => !selectedIds.has(p.ingredient.id));
   }, [
     currentSegment,
     allIngredients,
     selectedIngredients,
+    selectedIds,
     dietaryFilters,
     seasonFilters,
     regionFilters,
@@ -89,6 +94,7 @@ export function IngredientGrid() {
             pairingScore={selectedIngredients.length > 0 ? p : undefined}
             isSelected={selectedIds.has(p.ingredient.id)}
             onToggle={() => {
+              stopAutoWalk();
               if (selectedIds.has(p.ingredient.id)) {
                 removeIngredient(currentSegment, p.ingredient.id);
               } else {
