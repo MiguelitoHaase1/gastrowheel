@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { Ratelimit } from "@upstash/ratelimit";
-import { Redis } from "@upstash/redis";
+import { Redis } from "@upstash/redis/cloudflare";
 
 // ---------------------------------------------------------------------------
 // CORS headers (duplicated from helpers.ts — middleware runs in Edge Runtime
