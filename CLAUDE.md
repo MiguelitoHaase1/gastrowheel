@@ -192,7 +192,20 @@ POST /api/cooking-guide                  — Cooking steps + recipes
 
 **Base URL:** `https://gastrowheel.vercel.app`
 **CORS:** `Access-Control-Allow-Origin: *` on all endpoints
+**Auth:** `x-api-key` header required (checked in middleware)
+**Rate Limit:** 60 req/min per IP via Upstash Redis (sliding window)
 **Caching:** GET routes cached at CDN edge (`s-maxage=3600`)
+
+### API Security (3 Layers)
+
+1. **Vercel Spend Protection** — Dashboard setting, caps monthly spend
+2. **API Key** — `x-api-key` header checked in `app/src/middleware.ts`. Key stored in `API_KEY` env var. If unset, auth is skipped (local dev).
+3. **Rate Limiting** — Upstash Redis sliding window (60/min per IP). Graceful degradation if Upstash is down or unconfigured. Headers: `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset`.
+
+Env vars (set on Vercel, see `app/.env.example`):
+- `API_KEY` — secret API key
+- `UPSTASH_REDIS_REST_URL` — Upstash Redis REST endpoint
+- `UPSTASH_REDIS_REST_TOKEN` — Upstash Redis auth token
 
 ### Pairing Engine Weights
 

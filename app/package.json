@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@gastrowheel/data": "workspace:*",
+    "@upstash/ratelimit": "^2.0.8",
+    "@upstash/redis": "^1.36.2",
     "framer-motion": "^11.18.0",
     "lucide-react": "^0.468.0",
     "next": "^15.3.0",
