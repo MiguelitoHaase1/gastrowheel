@@ -7,7 +7,7 @@ export type WheelSegment =
   | "Sweet"
   | "Aroma"
   | "Fresh"
-  | "Soft"
+  | "Base"
   | "Bitter"
   | "Spicy";
 

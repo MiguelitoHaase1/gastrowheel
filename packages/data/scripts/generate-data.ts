@@ -57,7 +57,7 @@ const RECIPE_TAGS = ["Sofrito", "Taco", "Aromatics", "Boil", "Raw", "Dressing", 
 const WHEEL_COLS: Record<string, string> = {
   Sour_wheel: "Sour", Umami_wheel: "Umami", Oil_wheel: "Oil", Crunch_wheel: "Crunch",
   Sweet_wheel: "Sweet", Aroma_wheel: "Aroma", Fresh_wheel: "Fresh",
-  Soft_wheel: "Soft", Bitter_wheel: "Bitter", Spicy_wheel: "Spicy",
+  Soft_wheel: "Base", Bitter_wheel: "Bitter", Spicy_wheel: "Spicy",
 };
 
 const MARKET_COLS = ["common_en", "common_da", "common_de", "common_es"];

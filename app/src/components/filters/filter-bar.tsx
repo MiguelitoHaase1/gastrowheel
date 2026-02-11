@@ -2,25 +2,24 @@
 
 import { useDishStore } from "@/store/dish-store";
 import type { DietaryFlag, Region } from "@gastrowheel/data";
-import { Search, X } from "lucide-react";
 
 const DIETARY_OPTIONS: { value: DietaryFlag; label: string }[] = [
   { value: "Vegan", label: "Vegan" },
-  { value: "Vegetarian", label: "Vegetarian" },
-  { value: "Glutenfree", label: "Gluten-free" },
-  { value: "LactoseFree", label: "Lactose-free" },
+  { value: "Vegetarian", label: "Veggie" },
+  { value: "Glutenfree", label: "GF" },
+  { value: "LactoseFree", label: "LF" },
   { value: "NutFree", label: "Nut-free" },
   { value: "Diabetic", label: "Diabetic" },
-  { value: "FODMAPS", label: "Low FODMAP" },
+  { value: "FODMAPS", label: "FODMAP" },
 ];
 
 const REGION_OPTIONS: { value: Region; label: string }[] = [
-  { value: "Mediterranean", label: "Mediterranean" },
-  { value: "SouthAsian", label: "South Asian" },
-  { value: "EastAsian", label: "East Asian" },
-  { value: "LatinAmerican", label: "Latin American" },
+  { value: "Mediterranean", label: "Med" },
+  { value: "SouthAsian", label: "S. Asian" },
+  { value: "EastAsian", label: "E. Asian" },
+  { value: "LatinAmerican", label: "Latin Am." },
   { value: "European", label: "European" },
-  { value: "MiddleEastern", label: "Middle Eastern" },
+  { value: "MiddleEastern", label: "Mid-East" },
   { value: "Exotic", label: "Exotic" },
 ];
 
@@ -36,10 +35,10 @@ function FilterChip({
   return (
     <button
       onClick={onClick}
-      className={`text-xs px-2.5 py-1 rounded-full border transition-colors ${
+      className={`text-[11px] px-2 py-0.5 rounded-full border transition-colors whitespace-nowrap ${
         isActive
           ? "bg-coral text-white border-coral"
-          : "bg-white text-stone-600 border-stone-200 hover:border-stone-300"
+          : "bg-white text-stone-500 border-stone-200 hover:border-stone-300"
       }`}
     >
       {label}
@@ -50,75 +49,51 @@ function FilterChip({
 export function FilterBar() {
   const dietaryFilters = useDishStore((s) => s.dietaryFilters);
   const regionFilters = useDishStore((s) => s.regionFilters);
-  const searchQuery = useDishStore((s) => s.searchQuery);
   const toggleDietaryFilter = useDishStore((s) => s.toggleDietaryFilter);
   const toggleRegionFilter = useDishStore((s) => s.toggleRegionFilter);
-  const setSearchQuery = useDishStore((s) => s.setSearchQuery);
   const clearFilters = useDishStore((s) => s.clearFilters);
 
-  const hasFilters =
-    dietaryFilters.length > 0 ||
-    regionFilters.length > 0 ||
-    searchQuery.length > 0;
+  const hasFilters = dietaryFilters.length > 0 || regionFilters.length > 0;
 
   return (
-    <div className="space-y-3">
-      <div className="relative">
-        <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-stone-400" />
-        <input
-          type="text"
-          placeholder="Search ingredients..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="w-full pl-8 pr-8 py-1.5 text-sm rounded-lg border border-stone-200 bg-white focus:outline-none focus:border-coral focus:ring-1 focus:ring-coral/30"
-        />
-        {searchQuery && (
-          <button
-            onClick={() => setSearchQuery("")}
-            className="absolute right-2.5 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600"
-          >
-            <X size={14} />
-          </button>
-        )}
+    <div className="flex items-center gap-2 overflow-x-auto scrollbar-none">
+      <span className="text-[10px] font-medium text-stone-400 uppercase tracking-wider shrink-0">
+        Diet
+      </span>
+      <div className="flex gap-1 shrink-0">
+        {DIETARY_OPTIONS.map((opt) => (
+          <FilterChip
+            key={opt.value}
+            label={opt.label}
+            isActive={dietaryFilters.includes(opt.value)}
+            onClick={() => toggleDietaryFilter(opt.value)}
+          />
+        ))}
       </div>
-
-      <div className="space-y-2">
-        <div>
-          <p className="text-[10px] font-medium text-stone-400 uppercase tracking-wider mb-1">Diet</p>
-          <div className="flex flex-wrap gap-1.5">
-            {DIETARY_OPTIONS.map((opt) => (
-              <FilterChip
-                key={opt.value}
-                label={opt.label}
-                isActive={dietaryFilters.includes(opt.value)}
-                onClick={() => toggleDietaryFilter(opt.value)}
-              />
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <p className="text-[10px] font-medium text-stone-400 uppercase tracking-wider mb-1">Cuisine</p>
-          <div className="flex flex-wrap gap-1.5">
-            {REGION_OPTIONS.map((opt) => (
-              <FilterChip
-                key={opt.value}
-                label={opt.label}
-                isActive={regionFilters.includes(opt.value)}
-                onClick={() => toggleRegionFilter(opt.value)}
-              />
-            ))}
-          </div>
-        </div>
+      <div className="w-px h-4 bg-stone-200 shrink-0" />
+      <span className="text-[10px] font-medium text-stone-400 uppercase tracking-wider shrink-0">
+        Cuisine
+      </span>
+      <div className="flex gap-1 shrink-0">
+        {REGION_OPTIONS.map((opt) => (
+          <FilterChip
+            key={opt.value}
+            label={opt.label}
+            isActive={regionFilters.includes(opt.value)}
+            onClick={() => toggleRegionFilter(opt.value)}
+          />
+        ))}
       </div>
-
       {hasFilters && (
-        <button
-          onClick={clearFilters}
-          className="text-xs text-coral hover:text-coral-dark transition-colors"
-        >
-          Clear all filters
-        </button>
+        <>
+          <div className="w-px h-4 bg-stone-200 shrink-0" />
+          <button
+            onClick={clearFilters}
+            className="text-[11px] text-coral hover:text-coral-dark transition-colors whitespace-nowrap shrink-0"
+          >
+            Clear
+          </button>
+        </>
       )}
     </div>
   );

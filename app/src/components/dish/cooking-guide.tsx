@@ -5,21 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { BookOpen, ChevronDown, Flame, ScrollText } from "lucide-react";
 import { useDishStore } from "@/store/dish-store";
 import { cookingComponents, recipeNotes } from "@/lib/data";
+import { TAG_TO_MODULES } from "@gastrowheel/data";
 import type { CookingComponent, RecipeNote, RecipeTag } from "@gastrowheel/data";
-
-/**
- * Mapping from RecipeTag values to cooking component module names.
- * Some map directly; others need a lookup table.
- */
-const TAG_TO_MODULES: Record<RecipeTag, string[]> = {
-  Sofrito: ["Sofrito"],
-  Taco: ["Taco"],
-  Aromatics: ["Trick"],
-  Boil: ["Rice", "Pasta", "Boil"],
-  Raw: ["Raw"],
-  Dressing: ["Dressing"],
-  Toasting: ["Toasting", "Roast"],
-};
 
 /**
  * Heuristic to match recipe notes by checking if any ingredient name

@@ -33,7 +33,7 @@ export const onion: Ingredient = {
   regions: ["Mediterranean", "European"],
   cookingStyles: ["SlowAndDeep", "FastAndFresh"],
   recipeTags: ["Sofrito", "Aromatics"],
-  wheelSegments: ["Umami", "Soft"],
+  wheelSegments: ["Umami", "Base"],
   commonIn: ["en", "da", "de", "es"],
   hasIcon: true,
 };
@@ -152,7 +152,7 @@ export const sumac: Ingredient = {
   hasIcon: false,
 };
 
-/** Plain noodles — Soft segment */
+/** Plain noodles — Base segment */
 export const noodles: Ingredient = {
   id: 203,
   iconId: 203,
@@ -166,12 +166,12 @@ export const noodles: Ingredient = {
   regions: ["EastAsian"],
   cookingStyles: ["FastAndFresh"],
   recipeTags: ["Boil"],
-  wheelSegments: ["Soft"],
+  wheelSegments: ["Base"],
   commonIn: ["en", "da", "de", "es"],
   hasIcon: false,
 };
 
-/** Rice noodles — Soft segment (variant of noodles) */
+/** Rice noodles — Base segment (variant of noodles) */
 export const riceNoodles: Ingredient = {
   id: 721,
   iconId: 721,
@@ -185,12 +185,12 @@ export const riceNoodles: Ingredient = {
   regions: ["EastAsian"],
   cookingStyles: ["FastAndFresh"],
   recipeTags: ["Boil"],
-  wheelSegments: ["Soft"],
+  wheelSegments: ["Base"],
   commonIn: [],
   hasIcon: false,
 };
 
-/** Soba noodles — Soft segment (variant of noodles) */
+/** Soba noodles — Base segment (variant of noodles) */
 export const sobaNoodles: Ingredient = {
   id: 751,
   iconId: 751,
@@ -204,7 +204,7 @@ export const sobaNoodles: Ingredient = {
   regions: ["EastAsian"],
   cookingStyles: ["FastAndFresh"],
   recipeTags: ["Boil"],
-  wheelSegments: ["Soft"],
+  wheelSegments: ["Base"],
   commonIn: [],
   hasIcon: false,
 };

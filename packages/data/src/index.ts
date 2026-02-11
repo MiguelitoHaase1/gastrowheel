@@ -33,6 +33,16 @@ export {
   PAIRING_WEIGHTS,
   DEGREES_PER_SEGMENT,
   COLORS,
+  DIETARY_FLAGS,
+  SEASONS,
+  REGIONS,
+  TASTE_TAGS,
+  AROMA_TAGS,
+  COOKING_STYLES,
+  RECIPE_TAGS,
+  MARKET_CODES,
+  CONTENT_LANGUAGES,
+  TAG_TO_MODULES,
 } from "./constants";
 
 export { jaccard, nameOverlaps, scorePairing, getPairingSuggestions, applyFilters } from "./pairing";

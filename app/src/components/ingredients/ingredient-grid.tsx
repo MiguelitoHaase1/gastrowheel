@@ -18,6 +18,7 @@ export function IngredientGrid() {
   const regionFilters = useDishStore((s) => s.regionFilters);
   const searchQuery = useDishStore((s) => s.searchQuery);
   const commonalityFilter = useDishStore((s) => s.commonalityFilter);
+  const freeMode = useDishStore((s) => s.freeMode);
 
   const { allIngredients } = useIngredients();
 
@@ -31,15 +32,20 @@ export function IngredientGrid() {
     [selections],
   );
 
+  // In free mode, pass null as targetSegment to skip segment filtering
+  const effectiveSegment = freeMode ? null : currentSegment;
+
   const pairings = useMemo(() => {
-    if (!currentSegment || allIngredients.length === 0) return [];
-    const results = getPairingSuggestions(allIngredients, selectedIngredients, currentSegment, {
+    if (!freeMode && !currentSegment) return [];
+    if (allIngredients.length === 0) return [];
+
+    const results = getPairingSuggestions(allIngredients, selectedIngredients, effectiveSegment, {
       dietary: dietaryFilters.length > 0 ? dietaryFilters : undefined,
       seasons: seasonFilters.length > 0 ? seasonFilters : undefined,
       regions: regionFilters.length > 0 ? regionFilters : undefined,
       searchQuery: searchQuery || undefined,
       commonality: commonalityFilter !== "all" ? commonalityFilter : undefined,
-    }, 50);
+    }, freeMode ? 80 : 50);
 
     // Safety: ensure no already-selected ingredient or name variant leaks through
     const selectedNames = selectedIngredients.map((s) => s.name);
@@ -50,6 +56,8 @@ export function IngredientGrid() {
     );
   }, [
     currentSegment,
+    effectiveSegment,
+    freeMode,
     allIngredients,
     selectedIngredients,
     selectedIds,
@@ -60,7 +68,7 @@ export function IngredientGrid() {
     commonalityFilter,
   ]);
 
-  if (!currentSegment) {
+  if (!freeMode && !currentSegment) {
     return (
       <div className="flex items-center justify-center h-64 text-stone-400">
         <p className="text-center">
@@ -90,22 +98,28 @@ export function IngredientGrid() {
         {pairings.length} ingredient{pairings.length !== 1 ? "s" : ""}
       </p>
       <AnimatePresence mode="popLayout">
-        {pairings.map((p) => (
-          <IngredientCard
-            key={`${currentSegment}-${p.ingredient.id}`}
-            ingredient={p.ingredient}
-            segment={currentSegment}
-            pairingScore={selectedIngredients.length > 0 ? p : undefined}
-            isSelected={selectedIds.has(p.ingredient.id)}
-            onToggle={() => {
-              if (selectedIds.has(p.ingredient.id)) {
-                removeIngredient(currentSegment, p.ingredient.id);
-              } else {
-                addIngredient(currentSegment, p.ingredient);
-              }
-            }}
-          />
-        ))}
+        {pairings.map((p) => {
+          // In free mode, use the ingredient's primary wheel segment for display/grouping
+          const displaySegment = freeMode
+            ? (p.ingredient.wheelSegments[0] as WheelSegment)
+            : currentSegment!;
+          return (
+            <IngredientCard
+              key={`${displaySegment}-${p.ingredient.id}`}
+              ingredient={p.ingredient}
+              segment={displaySegment}
+              pairingScore={selectedIngredients.length > 0 ? p : undefined}
+              isSelected={selectedIds.has(p.ingredient.id)}
+              onToggle={() => {
+                if (selectedIds.has(p.ingredient.id)) {
+                  removeIngredient(displaySegment, p.ingredient.id);
+                } else {
+                  addIngredient(displaySegment, p.ingredient);
+                }
+              }}
+            />
+          );
+        })}
       </AnimatePresence>
     </div>
   );

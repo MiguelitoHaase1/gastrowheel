@@ -168,7 +168,7 @@ export function FlavorWheel() {
     <div className="flex flex-col items-center gap-4">
       <svg
         viewBox={`0 0 ${SIZE} ${SIZE}`}
-        className="w-full max-w-[400px] md:max-w-[450px] lg:max-w-[500px]"
+        className="w-full max-w-[280px] lg:max-w-[220px]"
         aria-label="Gastrowheel flavor wheel"
       >
         {WHEEL_SEGMENTS.map((segment, i) => (

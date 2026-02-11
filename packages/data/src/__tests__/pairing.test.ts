@@ -243,7 +243,7 @@ describe("getPairingSuggestions", () => {
 
   it("excludes name variants of selected ingredients", () => {
     // Select "noodles" → "rice noodles" and "soba noodles" should NOT appear
-    const result = getPairingSuggestions(allTestIngredients, [noodles], "Soft");
+    const result = getPairingSuggestions(allTestIngredients, [noodles], "Base");
     const names = result.map((p) => p.ingredient.name);
     expect(names).not.toContain("noodles");
     expect(names).not.toContain("rice noodles");
@@ -252,7 +252,7 @@ describe("getPairingSuggestions", () => {
 
   it("excludes base ingredient when variant is selected", () => {
     // Select "rice noodles" → "noodles" and "soba noodles" should NOT appear
-    const result = getPairingSuggestions(allTestIngredients, [riceNoodles], "Soft");
+    const result = getPairingSuggestions(allTestIngredients, [riceNoodles], "Base");
     const names = result.map((p) => p.ingredient.name);
     expect(names).not.toContain("noodles");
     expect(names).not.toContain("rice noodles");

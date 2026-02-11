@@ -186,7 +186,7 @@ export function scorePairing(candidate: Ingredient, selected: Ingredient[]): Pai
 export function getPairingSuggestions(
   allIngredients: Ingredient[],
   selected: Ingredient[],
-  targetSegment: WheelSegment,
+  targetSegment: WheelSegment | null,
   filters?: IngredientFilters,
   limit = 20,
 ): PairingScore[] {
@@ -195,7 +195,7 @@ export function getPairingSuggestions(
 
   let candidates = allIngredients.filter(
     (ing) =>
-      ing.wheelSegments.includes(targetSegment) &&
+      (targetSegment === null || ing.wheelSegments.includes(targetSegment)) &&
       !selectedIds.has(ing.id) &&
       !selectedNames.some((name) => nameOverlaps(name, ing.name)),
   );

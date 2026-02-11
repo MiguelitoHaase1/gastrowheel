@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Gastrowheel is an interactive cooking companion where users build dishes by selecting ingredients around a flavor wheel. The wheel has **10 segments**:
 
-**Sour · Umami · Oil · Crunch · Sweet · Aroma · Fresh · Soft · Bitter · Spicy**
+**Sour · Umami · Oil · Crunch · Sweet · Aroma · Fresh · Base · Bitter · Spicy**
 
 Users start by picking a base ingredient, then move around the wheel segment by segment. At each step, the system proposes ingredients for the next component that pair well with what's already selected. The goal: compose a balanced, flavorful dish one component at a time.
 

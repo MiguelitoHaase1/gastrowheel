@@ -1,4 +1,17 @@
-import type { WheelSegment, DishRole, RoleCategory } from "./types";
+import type {
+  WheelSegment,
+  DishRole,
+  RoleCategory,
+  DietaryFlag,
+  Season,
+  Region,
+  TasteTag,
+  AromaTag,
+  CookingStyle,
+  RecipeTag,
+  MarketCode,
+  ContentLanguage,
+} from "./types";
 
 /** All 10 wheel segments in display order (clockwise from top) */
 export const WHEEL_SEGMENTS: WheelSegment[] = [
@@ -9,14 +22,14 @@ export const WHEEL_SEGMENTS: WheelSegment[] = [
   "Sweet",
   "Aroma",
   "Fresh",
-  "Soft",
+  "Base",
   "Bitter",
   "Spicy",
 ];
 
 /** Suggested walk order for building a balanced dish (8 guided segments) */
 export const WALK_ORDER: WheelSegment[] = [
-  "Soft",
+  "Base",
   "Fresh",
   "Aroma",
   "Oil",
@@ -35,7 +48,7 @@ export const SEGMENT_COLORS: Record<WheelSegment, { bg: string; text: string; ac
   Sweet: { bg: "#FCE7F3", text: "#831843", accent: "#DB2777" },
   Aroma: { bg: "#F3E8FF", text: "#581C87", accent: "#9333EA" },
   Fresh: { bg: "#DCFCE7", text: "#14532D", accent: "#16A34A" },
-  Soft: { bg: "#FFF7ED", text: "#7C2D12", accent: "#EA580C" },
+  Base: { bg: "#FFF7ED", text: "#7C2D12", accent: "#EA580C" },
   Bitter: { bg: "#E0E7FF", text: "#312E81", accent: "#4F46E5" },
   Spicy: { bg: "#FEE2E2", text: "#7F1D1D", accent: "#DC2626" },
 };
@@ -49,7 +62,7 @@ export const SEGMENT_INDEX: Record<WheelSegment, number> = {
   Sweet: 4,
   Aroma: 5,
   Fresh: 6,
-  Soft: 7,
+  Base: 7,
   Bitter: 8,
   Spicy: 9,
 };
@@ -63,7 +76,7 @@ export const WHEEL_COLUMN_MAP: Record<string, WheelSegment> = {
   Sweet_wheel: "Sweet",
   Aroma_wheel: "Aroma",
   Fresh_wheel: "Fresh",
-  Soft_wheel: "Soft",
+  Soft_wheel: "Base",
   Bitter_wheel: "Bitter",
   Spicy_wheel: "Spicy",
 };
@@ -117,6 +130,44 @@ export const PAIRING_WEIGHTS = {
   roleDiversity: 0.10,
   commonality: 0.05,
 } as const;
+
+/** All dietary flags */
+export const DIETARY_FLAGS: DietaryFlag[] = ["Glutenfree", "Vegan", "Vegetarian", "LactoseFree", "Diabetic", "NutFree", "FODMAPS"];
+
+/** All seasons */
+export const SEASONS: Season[] = ["Spring", "Summer", "Fall", "Winter"];
+
+/** All cuisine regions */
+export const REGIONS: Region[] = ["Mediterranean", "SouthAsian", "EastAsian", "LatinAmerican", "European", "MiddleEastern", "Exotic"];
+
+/** All taste profile tags */
+export const TASTE_TAGS: TasteTag[] = ["Umami", "Sweet", "Bitter", "Sour", "Salty", "Spicy", "Crunchy", "AromaBomb"];
+
+/** All aroma profile tags */
+export const AROMA_TAGS: AromaTag[] = ["FRUITY", "GREEN", "FLORAL", "SULFUROUS", "HERBAL", "AROMATIC_SPICY", "WOODY", "NUTTY", "ROASTED", "SMOKEY", "CITRUS", "MEATY", "MARINE", "CREAMY", "CHEESY"];
+
+/** All cooking styles */
+export const COOKING_STYLES: CookingStyle[] = ["SlowAndDeep", "FastAndFresh"];
+
+/** All recipe method tags */
+export const RECIPE_TAGS: RecipeTag[] = ["Sofrito", "Taco", "Aromatics", "Boil", "Raw", "Dressing", "Toasting"];
+
+/** All market/language codes */
+export const MARKET_CODES: MarketCode[] = ["en", "da", "de", "es"];
+
+/** All content languages (superset of market codes) */
+export const CONTENT_LANGUAGES: ContentLanguage[] = ["en", "da", "de", "es", "lv", "et", "lt"];
+
+/** Mapping from recipe tags to cooking component module names */
+export const TAG_TO_MODULES: Record<RecipeTag, string[]> = {
+  Sofrito: ["Sofrito"],
+  Taco: ["Taco"],
+  Aromatics: ["Trick"],
+  Boil: ["Rice", "Pasta", "Boil"],
+  Raw: ["Raw"],
+  Dressing: ["Dressing"],
+  Toasting: ["Toasting", "Roast"],
+};
 
 /** Number of degrees per segment (360 / 10) */
 export const DEGREES_PER_SEGMENT = 36;

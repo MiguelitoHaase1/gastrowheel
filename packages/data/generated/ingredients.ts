@@ -36,14 +36,9 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -200,7 +195,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -462,14 +457,9 @@ export const ingredients: Ingredient[] = [
       "Aromatics"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -633,7 +623,7 @@ export const ingredients: Ingredient[] = [
     ],
     "wheelSegments": [
       "Umami",
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -725,7 +715,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Oil",
       "Fresh",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -764,12 +754,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Oil"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -900,12 +885,7 @@ export const ingredients: Ingredient[] = [
       "Crunch",
       "Fresh"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -944,7 +924,7 @@ export const ingredients: Ingredient[] = [
     ],
     "wheelSegments": [
       "Sweet",
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -1028,7 +1008,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -1323,7 +1303,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -1361,7 +1341,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "es"
@@ -1536,7 +1516,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Umami",
       "Aroma",
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -1756,7 +1736,7 @@ export const ingredients: Ingredient[] = [
     ],
     "wheelSegments": [
       "Umami",
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -1843,7 +1823,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -2001,7 +1981,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -2042,7 +2022,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -2079,7 +2059,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -2162,7 +2142,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -2591,7 +2571,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -2628,7 +2608,7 @@ export const ingredients: Ingredient[] = [
     "recipeTags": [],
     "wheelSegments": [
       "Fresh",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -3048,7 +3028,7 @@ export const ingredients: Ingredient[] = [
     ],
     "wheelSegments": [
       "Umami",
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -3090,7 +3070,7 @@ export const ingredients: Ingredient[] = [
     ],
     "wheelSegments": [
       "Umami",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -3295,7 +3275,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -3385,12 +3365,7 @@ export const ingredients: Ingredient[] = [
       "Oil",
       "Spicy"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -3429,12 +3404,7 @@ export const ingredients: Ingredient[] = [
       "Fresh",
       "Bitter"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -4090,12 +4060,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Sweet"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -4175,12 +4140,7 @@ export const ingredients: Ingredient[] = [
       "Aroma",
       "Bitter"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -4220,7 +4180,7 @@ export const ingredients: Ingredient[] = [
     ],
     "wheelSegments": [
       "Umami",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -4360,12 +4320,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Sweet"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -4442,7 +4397,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Oil",
       "Fresh",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -4480,7 +4435,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -4609,7 +4564,7 @@ export const ingredients: Ingredient[] = [
     ],
     "wheelSegments": [
       "Oil",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -5031,7 +4986,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -5073,7 +5028,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Umami",
       "Fresh",
-      "Soft",
+      "Base",
       "Bitter"
     ],
     "commonIn": [],
@@ -5110,8 +5065,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Umami",
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -5151,7 +5105,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -5194,7 +5148,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -5340,7 +5294,7 @@ export const ingredients: Ingredient[] = [
     ],
     "wheelSegments": [
       "Umami",
-      "Soft",
+      "Base",
       "Bitter"
     ],
     "commonIn": [],
@@ -5535,7 +5489,7 @@ export const ingredients: Ingredient[] = [
     ],
     "wheelSegments": [
       "Umami",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -5620,12 +5574,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Aroma"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -5805,7 +5754,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -5898,7 +5847,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Sour",
       "Umami",
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "es"
@@ -5984,7 +5933,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Umami",
       "Aroma",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -6025,7 +5974,7 @@ export const ingredients: Ingredient[] = [
     ],
     "wheelSegments": [
       "Umami",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -6055,7 +6004,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -6126,7 +6075,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -6569,7 +6518,7 @@ export const ingredients: Ingredient[] = [
     ],
     "wheelSegments": [
       "Umami",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -6681,14 +6630,9 @@ export const ingredients: Ingredient[] = [
     ],
     "wheelSegments": [
       "Oil",
-      "Soft"
+      "Base"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -7083,7 +7027,7 @@ export const ingredients: Ingredient[] = [
     ],
     "wheelSegments": [
       "Oil",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -7158,12 +7102,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Sweet"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -7271,12 +7210,7 @@ export const ingredients: Ingredient[] = [
       "Aroma",
       "Bitter"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -7350,7 +7284,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Umami",
       "Sweet",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -7384,7 +7318,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -7435,12 +7369,7 @@ export const ingredients: Ingredient[] = [
       "Umami",
       "Aroma"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -7481,7 +7410,7 @@ export const ingredients: Ingredient[] = [
       "Sour",
       "Sweet",
       "Fresh",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -7516,12 +7445,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Sweet"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -7639,7 +7563,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -7909,7 +7833,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -7983,7 +7907,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -8189,7 +8113,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Sweet",
       "Fresh",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -8309,12 +8233,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Umami"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -8398,7 +8317,7 @@ export const ingredients: Ingredient[] = [
     ],
     "wheelSegments": [
       "Oil",
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -8509,7 +8428,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -8581,7 +8500,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -8613,7 +8532,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -8698,8 +8617,7 @@ export const ingredients: Ingredient[] = [
       "Dressing"
     ],
     "wheelSegments": [
-      "Umami",
-      "Aroma"
+      "Umami"
     ],
     "commonIn": [
       "en",
@@ -8738,7 +8656,7 @@ export const ingredients: Ingredient[] = [
     ],
     "wheelSegments": [
       "Umami",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -8808,7 +8726,7 @@ export const ingredients: Ingredient[] = [
     ],
     "wheelSegments": [
       "Fresh",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -8844,7 +8762,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "es"
@@ -9005,7 +8923,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "es"
@@ -9115,7 +9033,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -9150,7 +9068,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -9195,12 +9113,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Umami"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -9229,12 +9142,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Oil"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -9382,7 +9290,7 @@ export const ingredients: Ingredient[] = [
       "Raw"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -9418,12 +9326,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Oil"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -9462,12 +9365,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Fresh"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -10025,7 +9923,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Sweet",
       "Fresh",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -10105,7 +10003,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -10463,7 +10361,7 @@ export const ingredients: Ingredient[] = [
     "recipeTags": [],
     "wheelSegments": [
       "Fresh",
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "es"
@@ -10698,7 +10596,7 @@ export const ingredients: Ingredient[] = [
     ],
     "wheelSegments": [
       "Oil",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -10737,12 +10635,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Spicy"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -10863,7 +10756,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -11049,14 +10942,9 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -11245,7 +11133,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -11314,14 +11202,9 @@ export const ingredients: Ingredient[] = [
     ],
     "wheelSegments": [
       "Umami",
-      "Soft"
+      "Base"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -11354,7 +11237,7 @@ export const ingredients: Ingredient[] = [
     "recipeTags": [],
     "wheelSegments": [
       "Sweet",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -11433,7 +11316,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -11722,7 +11605,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -11878,7 +11761,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -11959,7 +11842,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -12066,7 +11949,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -12177,7 +12060,7 @@ export const ingredients: Ingredient[] = [
     ],
     "wheelSegments": [
       "Oil",
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -12368,12 +12251,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Oil"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -12870,7 +12748,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -12939,7 +12817,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -13056,12 +12934,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Sour"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -13128,14 +13001,9 @@ export const ingredients: Ingredient[] = [
     ],
     "wheelSegments": [
       "Umami",
-      "Soft"
+      "Base"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -13206,8 +13074,7 @@ export const ingredients: Ingredient[] = [
       "Dressing"
     ],
     "wheelSegments": [
-      "Umami",
-      "Aroma"
+      "Umami"
     ],
     "commonIn": [
       "en",
@@ -13245,7 +13112,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -13283,7 +13150,7 @@ export const ingredients: Ingredient[] = [
     "recipeTags": [],
     "wheelSegments": [
       "Fresh",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -13442,7 +13309,7 @@ export const ingredients: Ingredient[] = [
     "recipeTags": [],
     "wheelSegments": [
       "Fresh",
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -13787,7 +13654,7 @@ export const ingredients: Ingredient[] = [
     "recipeTags": [],
     "wheelSegments": [
       "Fresh",
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -14046,7 +13913,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -14153,7 +14020,7 @@ export const ingredients: Ingredient[] = [
       "Raw"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -14233,7 +14100,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Umami",
       "Oil",
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -14308,11 +14175,7 @@ export const ingredients: Ingredient[] = [
       "Sweet",
       "Fresh"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -14337,14 +14200,9 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -14465,7 +14323,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -14615,7 +14473,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -14689,7 +14547,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -14805,12 +14663,7 @@ export const ingredients: Ingredient[] = [
       "Oil",
       "Aroma"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -14964,7 +14817,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -15226,12 +15079,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Oil"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -15262,12 +15110,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Crunch"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -15390,12 +15233,7 @@ export const ingredients: Ingredient[] = [
     "wheelSegments": [
       "Crunch"
     ],
-    "commonIn": [
-      "en",
-      "da",
-      "de",
-      "es"
-    ],
+    "commonIn": [],
     "hasIcon": true
   },
   {
@@ -15507,7 +15345,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -15540,7 +15378,7 @@ export const ingredients: Ingredient[] = [
       "Boil"
     ],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -15684,7 +15522,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -15874,7 +15712,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Umami"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -15945,7 +15783,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Umami"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -16088,7 +15926,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": true
@@ -16140,7 +15978,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -16258,7 +16096,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -16289,7 +16127,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -16405,7 +16243,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -16457,7 +16295,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -16538,7 +16376,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -16564,7 +16402,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -16619,7 +16457,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -16960,7 +16798,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "es"
@@ -17058,7 +16896,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -17238,7 +17076,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -17262,7 +17100,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -17347,7 +17185,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -17407,7 +17245,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -17546,7 +17384,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -17579,7 +17417,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -17745,7 +17583,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -17776,7 +17614,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -17806,7 +17644,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -17948,7 +17786,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -18219,7 +18057,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -18661,7 +18499,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -18690,7 +18528,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -18721,7 +18559,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -18802,7 +18640,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -18866,7 +18704,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -18891,7 +18729,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -19091,7 +18929,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -19235,7 +19073,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -19442,7 +19280,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -19961,7 +19799,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -19989,7 +19827,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -20017,7 +19855,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -20042,7 +19880,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -20098,7 +19936,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -20375,7 +20213,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -20435,7 +20273,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -20460,7 +20298,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -20525,7 +20363,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -20629,7 +20467,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -20655,7 +20493,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -20689,7 +20527,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -20712,7 +20550,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -20738,7 +20576,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -20791,7 +20629,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -20818,7 +20656,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -20847,7 +20685,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -20874,7 +20712,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -20904,7 +20742,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -20960,7 +20798,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -21246,7 +21084,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -21792,7 +21630,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -21851,7 +21689,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -21882,7 +21720,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -21943,7 +21781,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -22064,7 +21902,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -22182,7 +22020,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -22295,7 +22133,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -22322,7 +22160,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -22348,7 +22186,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -22405,7 +22243,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -22553,7 +22391,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -22630,7 +22468,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -22657,7 +22495,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -22832,7 +22670,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -23062,7 +22900,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -23087,7 +22925,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -23202,7 +23040,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -23262,7 +23100,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -23324,7 +23162,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -23351,7 +23189,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -23380,7 +23218,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -23410,7 +23248,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -23475,7 +23313,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -23583,7 +23421,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -23793,7 +23631,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -24285,7 +24123,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -24891,7 +24729,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -24951,7 +24789,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -24976,7 +24814,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -25034,7 +24872,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -25058,7 +24896,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -25116,7 +24954,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -25140,7 +24978,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -25354,7 +25192,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -25499,7 +25337,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -25531,7 +25369,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -25563,7 +25401,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -25594,7 +25432,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [
       "en",
@@ -25662,7 +25500,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -25795,7 +25633,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -25822,7 +25660,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -26096,7 +25934,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -26158,7 +25996,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -26182,7 +26020,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -26209,7 +26047,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -26333,7 +26171,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -26360,7 +26198,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -26424,7 +26262,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -26451,7 +26289,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -26504,7 +26342,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -26536,7 +26374,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -26568,7 +26406,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -26651,7 +26489,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -26676,7 +26514,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -26790,7 +26628,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -27095,7 +26933,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -27156,7 +26994,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -27247,7 +27085,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -27438,7 +27276,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -27492,7 +27330,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -27583,7 +27421,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -27666,7 +27504,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -27693,7 +27531,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -27862,7 +27700,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -27923,7 +27761,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -28030,7 +27868,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -28178,7 +28016,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -28207,7 +28045,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -28232,7 +28070,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -28258,7 +28096,7 @@ export const ingredients: Ingredient[] = [
     "cookingStyles": [],
     "recipeTags": [],
     "wheelSegments": [
-      "Soft"
+      "Base"
     ],
     "commonIn": [],
     "hasIcon": false
@@ -28396,7 +28234,7 @@ export const ingredientById = new Map<number, Ingredient>(
 );
 
 export const ingredientsBySegment: Record<string, number[]> = {
-  "Soft": [
+  "Base": [
     1,
     5,
     11,
@@ -28489,6 +28327,8 @@ export const ingredientsBySegment: Record<string, number[]> = {
     392,
     393,
     397,
+    402,
+    404,
     408,
     410,
     414,
@@ -28759,7 +28599,6 @@ export const ingredientsBySegment: Record<string, number[]> = {
     196,
     208,
     216,
-    217,
     233,
     240,
     242,
@@ -28780,7 +28619,6 @@ export const ingredientsBySegment: Record<string, number[]> = {
     320,
     321,
     326,
-    332,
     335,
     337,
     339,
@@ -29180,7 +29018,6 @@ export const ingredientsBySegment: Record<string, number[]> = {
     103,
     115,
     125,
-    126,
     132,
     134,
     137,
@@ -29222,8 +29059,6 @@ export const ingredientsBySegment: Record<string, number[]> = {
     377,
     399,
     400,
-    402,
-    404,
     411,
     416,
     426,
