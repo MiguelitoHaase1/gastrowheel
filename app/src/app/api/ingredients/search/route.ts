@@ -1,7 +1,6 @@
 import { type NextRequest } from "next/server";
 import {
   json,
-  corsHeaders,
   ingredients,
   applyFilters,
   serializeIngredient,
@@ -12,11 +11,9 @@ import {
   type RoleCategory,
 } from "../../_lib/helpers";
 
-export function OPTIONS() {
-  return new Response(null, { status: 204, headers: corsHeaders });
-}
+export { OPTIONS } from "../../_lib/helpers";
 
-export function GET(request: NextRequest) {
+export function GET(request: NextRequest): Response {
   const params = request.nextUrl.searchParams;
   const query = params.get("query") ?? "";
   const limit = Math.min(Number(params.get("limit")) || 50, 200);

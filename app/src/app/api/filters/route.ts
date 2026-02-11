@@ -1,6 +1,5 @@
 import {
   json,
-  corsHeaders,
   WHEEL_SEGMENTS,
   DIETARY_FLAGS,
   SEASONS,
@@ -10,15 +9,14 @@ import {
   COOKING_STYLES,
   RECIPE_TAGS,
   DISH_ROLES,
+  ROLE_CATEGORIES,
   MARKET_CODES,
   CONTENT_LANGUAGES,
 } from "../_lib/helpers";
 
-export function OPTIONS() {
-  return new Response(null, { status: 204, headers: corsHeaders });
-}
+export { OPTIONS } from "../_lib/helpers";
 
-export function GET() {
+export function GET(): Response {
   return json({
     wheelSegments: WHEEL_SEGMENTS,
     dietaryFlags: DIETARY_FLAGS,
@@ -29,7 +27,7 @@ export function GET() {
     cookingStyles: COOKING_STYLES,
     recipeTags: RECIPE_TAGS,
     dishRoles: DISH_ROLES,
-    roleCategories: ["Bulk", "Boost", "Top", "Splash"],
+    roleCategories: [...new Set(Object.values(ROLE_CATEGORIES))],
     marketCodes: MARKET_CODES,
     contentLanguages: CONTENT_LANGUAGES,
   });

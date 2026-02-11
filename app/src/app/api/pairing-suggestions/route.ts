@@ -2,7 +2,7 @@ import { type NextRequest } from "next/server";
 import {
   json,
   jsonError,
-  corsHeaders,
+  parseJsonBody,
   ingredients,
   ingredientById,
   getPairingSuggestions,
@@ -13,21 +13,21 @@ import {
   type WheelSegment,
 } from "../_lib/helpers";
 
-export function OPTIONS() {
-  return new Response(null, { status: 204, headers: corsHeaders });
-}
+export { OPTIONS } from "../_lib/helpers";
 
-export async function POST(request: NextRequest) {
-  let body: Record<string, unknown>;
-  try {
-    body = await request.json();
-  } catch {
-    return jsonError("Invalid JSON body");
-  }
+export async function POST(request: NextRequest): Promise<Response> {
+  const body = await parseJsonBody(request);
+  if (body instanceof Response) return body;
 
   const selectedIds = body.selectedIds as number[] | undefined;
   if (!Array.isArray(selectedIds) || selectedIds.length === 0) {
     return jsonError("selectedIds must be a non-empty array of numbers");
+  }
+  if (selectedIds.length > 100) {
+    return jsonError("selectedIds exceeds maximum of 100 items");
+  }
+  if (!selectedIds.every((id) => typeof id === "number")) {
+    return jsonError("selectedIds must contain only numbers");
   }
 
   const targetSegment = (body.targetSegment as WheelSegment | undefined) ?? null;

@@ -27,21 +27,19 @@ import {
   MARKET_CODES,
   CONTENT_LANGUAGES,
   TAG_TO_MODULES,
-} from "@gastrowheel/data";
-import type {
-  Ingredient,
-  WheelSegment,
-  DietaryFlag,
-  Season,
-  Region,
-  CookingStyle,
-  RecipeTag,
-  IngredientFilters,
-  PairingScore,
-  ContentLanguage,
-  DishDescription,
-  DishNote,
-  RoleCategory,
+  type Ingredient,
+  type WheelSegment,
+  type DietaryFlag,
+  type Season,
+  type Region,
+  type CookingStyle,
+  type RecipeTag,
+  type IngredientFilters,
+  type PairingScore,
+  type ContentLanguage,
+  type DishDescription,
+  type DishNote,
+  type RoleCategory,
 } from "@gastrowheel/data";
 
 // ---------------------------------------------------------------------------
@@ -73,22 +71,19 @@ export {
   MARKET_CODES,
   CONTENT_LANGUAGES,
   TAG_TO_MODULES,
-};
-
-export type {
-  Ingredient,
-  WheelSegment,
-  DietaryFlag,
-  Season,
-  Region,
-  CookingStyle,
-  RecipeTag,
-  IngredientFilters,
-  PairingScore,
-  ContentLanguage,
-  DishDescription,
-  DishNote,
-  RoleCategory,
+  type Ingredient,
+  type WheelSegment,
+  type DietaryFlag,
+  type Season,
+  type Region,
+  type CookingStyle,
+  type RecipeTag,
+  type IngredientFilters,
+  type PairingScore,
+  type ContentLanguage,
+  type DishDescription,
+  type DishNote,
+  type RoleCategory,
 };
 
 // ---------------------------------------------------------------------------
@@ -105,8 +100,8 @@ export const cacheHeaders: Record<string, string> = {
   "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
 };
 
-/** OPTIONS preflight handler — export from every route file */
-export function OPTIONS() {
+/** OPTIONS preflight handler — re-export from every route file */
+export function OPTIONS(): Response {
   return new Response(null, { status: 204, headers: corsHeaders });
 }
 
@@ -114,27 +109,34 @@ export function OPTIONS() {
 // JSON response helpers
 // ---------------------------------------------------------------------------
 
-export function json(data: unknown, status = 200) {
+export function json(data: unknown, status = 200): Response {
   return Response.json(data, {
     status,
     headers: { ...corsHeaders, ...cacheHeaders },
   });
 }
 
-export function jsonError(message: string, status = 400) {
+export function jsonError(message: string, status = 400): Response {
   return Response.json(
     { error: message },
     { status, headers: corsHeaders },
   );
 }
 
+/** Parse a JSON request body, returning either the parsed data or an error Response */
+export async function parseJsonBody(
+  request: Request,
+): Promise<Record<string, unknown> | Response> {
+  try {
+    return await request.json();
+  } catch {
+    return jsonError("Invalid JSON body");
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Shared logic (ported from MCP server — avoids importing @modelcontextprotocol/sdk)
 // ---------------------------------------------------------------------------
-
-function isValidEnum(arr: readonly string[], value: string): boolean {
-  return arr.includes(value);
-}
 
 /** Serialize an Ingredient to a plain JSON-safe object */
 export function serializeIngredient(ing: Ingredient) {
@@ -178,17 +180,17 @@ export function buildFilters(params: {
 }): IngredientFilters {
   const filters: IngredientFilters = {};
   if (params.dietary?.length) {
-    filters.dietary = params.dietary.filter((d): d is DietaryFlag =>
-      isValidEnum(DIETARY_FLAGS, d),
+    filters.dietary = params.dietary.filter(
+      (d): d is DietaryFlag => (DIETARY_FLAGS as readonly string[]).includes(d),
     );
   }
-  if (params.season && isValidEnum(SEASONS, params.season)) {
+  if (params.season && (SEASONS as readonly string[]).includes(params.season)) {
     filters.seasons = [params.season as Season];
   }
-  if (params.region && isValidEnum(REGIONS, params.region)) {
+  if (params.region && (REGIONS as readonly string[]).includes(params.region)) {
     filters.regions = [params.region as Region];
   }
-  if (params.cookingStyle && isValidEnum(COOKING_STYLES, params.cookingStyle)) {
+  if (params.cookingStyle && (COOKING_STYLES as readonly string[]).includes(params.cookingStyle)) {
     filters.cookingStyles = [params.cookingStyle as CookingStyle];
   }
   if (params.query) {

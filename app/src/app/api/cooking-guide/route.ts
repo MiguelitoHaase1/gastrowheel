@@ -2,7 +2,7 @@ import { type NextRequest } from "next/server";
 import {
   json,
   jsonError,
-  corsHeaders,
+  parseJsonBody,
   cookingComponents,
   recipeNotes,
   resolveIngredient,
@@ -12,23 +12,20 @@ import {
   type RecipeTag,
 } from "../_lib/helpers";
 
-export function OPTIONS() {
-  return new Response(null, { status: 204, headers: corsHeaders });
-}
+export { OPTIONS } from "../_lib/helpers";
 
-export async function POST(request: NextRequest) {
-  let body: Record<string, unknown>;
-  try {
-    body = await request.json();
-  } catch {
-    return jsonError("Invalid JSON body");
-  }
+export async function POST(request: NextRequest): Promise<Response> {
+  const body = await parseJsonBody(request);
+  if (body instanceof Response) return body;
 
   const ingredientIds = body.ingredientIds as number[] | undefined;
   const ingredientNames = body.ingredientNames as string[] | undefined;
 
   if (!ingredientIds?.length && !ingredientNames?.length) {
     return jsonError("Either ingredientIds or ingredientNames must be provided");
+  }
+  if ((ingredientIds?.length ?? 0) + (ingredientNames?.length ?? 0) > 100) {
+    return jsonError("Total ingredients exceeds maximum of 100 items");
   }
 
   const resolved: Ingredient[] = [];
@@ -72,9 +69,8 @@ export async function POST(request: NextRequest) {
       fromTags: allTags.filter((t) => TAG_TO_MODULES[t]?.includes(comp.module)),
     }));
 
-  const resolvedNames = resolved.map((i) => i.name);
   const searchTerms = new Set([
-    ...resolvedNames.map((n) => n.toLowerCase()),
+    ...resolved.map((i) => i.name.toLowerCase()),
     ...allTags.map((t) => t.toLowerCase()),
   ]);
 

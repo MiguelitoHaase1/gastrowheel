@@ -1,6 +1,5 @@
 import {
   json,
-  corsHeaders,
   ingredients,
   dishDescriptions,
   dishNotes,
@@ -14,11 +13,9 @@ import {
   DISH_ROLES,
 } from "../../_lib/helpers";
 
-export function OPTIONS() {
-  return new Response(null, { status: 204, headers: corsHeaders });
-}
+export { OPTIONS } from "../../_lib/helpers";
 
-export function GET() {
+export function GET(): Response {
   const ingredientsPerSegment: Record<string, number> = {};
   for (const seg of WHEEL_SEGMENTS) {
     ingredientsPerSegment[seg] = ingredients.filter((i) =>

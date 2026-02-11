@@ -2,49 +2,47 @@ import { type NextRequest } from "next/server";
 import {
   json,
   jsonError,
-  corsHeaders,
+  parseJsonBody,
   dishDescriptions,
   dishNotes,
   scoreDish,
   isSweetDish,
   qualityLabel,
-  WHEEL_SEGMENTS,
   type WheelSegment,
   type ContentLanguage,
   type DishDescription,
   type DishNote,
 } from "../_lib/helpers";
 
-export function OPTIONS() {
-  return new Response(null, { status: 204, headers: corsHeaders });
+export { OPTIONS } from "../_lib/helpers";
+
+interface ScoredDish {
+  dish: DishDescription;
+  note: DishNote | undefined;
+  score: number;
+  matchCount: number;
+  matchedIngredients: string[];
+  quality: "strong" | "good" | "partial";
 }
 
-export async function POST(request: NextRequest) {
-  let body: Record<string, unknown>;
-  try {
-    body = await request.json();
-  } catch {
-    return jsonError("Invalid JSON body");
-  }
+const QUALITY_ORDER: Record<string, number> = { strong: 0, good: 1, partial: 2 };
+
+export async function POST(request: NextRequest): Promise<Response> {
+  const body = await parseJsonBody(request);
+  if (body instanceof Response) return body;
 
   const ingredientNames = body.ingredientNames as string[] | undefined;
   if (!Array.isArray(ingredientNames) || ingredientNames.length === 0) {
     return jsonError("ingredientNames must be a non-empty array of strings");
+  }
+  if (ingredientNames.length > 100) {
+    return jsonError("ingredientNames exceeds maximum of 100 items");
   }
 
   const wheelSegments = (body.wheelSegments as WheelSegment[] | undefined) ?? [];
   const hasSweetIngredient = (body.hasSweetIngredient as boolean | undefined) ?? false;
   const language = ((body.language as string | undefined) ?? "en") as ContentLanguage;
   const limit = (body.limit as number | undefined) ?? 15;
-
-  interface ScoredDish {
-    dish: DishDescription;
-    note: DishNote | undefined;
-    score: number;
-    matchCount: number;
-    matchedIngredients: string[];
-    quality: "strong" | "good" | "partial";
-  }
 
   const results: ScoredDish[] = [];
 
@@ -79,10 +77,9 @@ export async function POST(request: NextRequest) {
     }
   }
 
-  const qualityOrder = { strong: 0, good: 1, partial: 2 };
   results.sort(
     (a, b) =>
-      b.score - a.score || qualityOrder[a.quality] - qualityOrder[b.quality],
+      b.score - a.score || QUALITY_ORDER[a.quality] - QUALITY_ORDER[b.quality],
   );
 
   const seen = new Set<string>();

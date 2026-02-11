@@ -1,20 +1,17 @@
 import { type NextRequest } from "next/server";
 import {
   json,
-  corsHeaders,
   cookingComponents,
   recipeNotes,
   TAG_TO_MODULES,
 } from "../_lib/helpers";
 
-export function OPTIONS() {
-  return new Response(null, { status: 204, headers: corsHeaders });
-}
+export { OPTIONS } from "../_lib/helpers";
 
-export function GET(request: NextRequest) {
+export function GET(request: NextRequest): Response {
   const params = request.nextUrl.searchParams;
   const module = params.get("module");
-  const type = params.get("type") ?? "all";
+  const contentType = params.get("type") ?? "all";
 
   let filteredComponents = cookingComponents;
   let filteredRecipes = recipeNotes;
@@ -31,7 +28,7 @@ export function GET(request: NextRequest) {
 
   const result: Record<string, unknown> = {};
 
-  if (type === "components" || type === "all") {
+  if (contentType === "components" || contentType === "all") {
     result.cookingComponents = filteredComponents.map((c) => ({
       module: c.module,
       fullTextEn: c.fullTextEn,
@@ -40,14 +37,14 @@ export function GET(request: NextRequest) {
     }));
   }
 
-  if (type === "recipes" || type === "all") {
+  if (contentType === "recipes" || contentType === "all") {
     result.recipeNotes = filteredRecipes.map((r) => ({
       recipeName: r.recipeName,
       fullRecipeEn: r.fullRecipeEn,
     }));
   }
 
-  if (type === "all") {
+  if (contentType === "all") {
     result.tagToModules = TAG_TO_MODULES;
   }
 
