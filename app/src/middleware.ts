@@ -1,4 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { Ratelimit } from "@upstash/ratelimit";
+import { Redis } from "@upstash/redis";
 
 // ---------------------------------------------------------------------------
 // CORS headers (duplicated from helpers.ts — middleware runs in Edge Runtime
@@ -15,16 +17,9 @@ const corsHeaders: Record<string, string> = {
 // Upstash rate limiter (lazy-initialized)
 // ---------------------------------------------------------------------------
 
-let ratelimit: {
-  limit: (key: string) => Promise<{
-    success: boolean;
-    limit: number;
-    remaining: number;
-    reset: number;
-  }>;
-} | null = null;
+let ratelimit: Ratelimit | null = null;
 
-async function getRateLimiter() {
+function getRateLimiter(): Ratelimit | null {
   if (ratelimit !== null) return ratelimit;
 
   const url = process.env.UPSTASH_REDIS_REST_URL;
@@ -32,19 +27,12 @@ async function getRateLimiter() {
 
   if (!url || !token) return null;
 
-  try {
-    const { Ratelimit } = await import("@upstash/ratelimit");
-    const { Redis } = await import("@upstash/redis");
-
-    ratelimit = new Ratelimit({
-      redis: new Redis({ url, token }),
-      limiter: Ratelimit.slidingWindow(60, "1 m"),
-      prefix: "gastrowheel",
-    });
-    return ratelimit;
-  } catch {
-    return null;
-  }
+  ratelimit = new Ratelimit({
+    redis: new Redis({ url, token }),
+    limiter: Ratelimit.slidingWindow(60, "1 m"),
+    prefix: "gastrowheel",
+  });
+  return ratelimit;
 }
 
 // ---------------------------------------------------------------------------
